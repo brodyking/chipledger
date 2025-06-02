@@ -18,7 +18,7 @@ git clone https://github.com/brodyking/chipledger.git
 
 ## Roadmap
 
-- [ ] Authentication
+- [x] Authentication
 - [ ] Stored games
 - [ ] Invite other users
 - [ ] Mobile focus
