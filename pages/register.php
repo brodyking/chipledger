@@ -27,7 +27,7 @@
                 <form method="POST" action="/api/v1/auth/register">
                     <div class="mb-3">
                         <label class="form-label">Username <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" name="username">
+                        <input type="text" class="form-control" name="username" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Email</label>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Password <span class="text-danger">*</span></label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="password" required>
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Register</button>
