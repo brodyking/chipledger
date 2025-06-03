@@ -44,8 +44,8 @@
                                     value="<?php echo date("m-d-Y"); ?>" readonly required>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Participants <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" name="participants" required>
+                                <label class="form-label">Participants  <span class="text-danger">*</span> <span class="text-secondary">(20 Max)</span></label>
+                                <input type="number" class="form-control" name="participants" value="1" required>
                             </div>
                         </div>
                         <div class="modal-footer">
