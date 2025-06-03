@@ -11,12 +11,14 @@
                 <li class="nav-item">
                     <a class="nav-link
                     <?php if ($title == "Home")
-                        echo "active"; ?>" aria-current="page" href="/"><i class="bi bi-house-door me-1"></i> Home</a>
+                        echo "active"; ?>" aria-current="page" href="/"><i class="bi bi-house-door<?php if ($title == "Home")
+                              echo "-fill"; ?> me-1"></i> Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link
                     <?php if ($title == "Games")
-                        echo "active"; ?>" aria-current="page" href="/games"><i class="bi bi-suit-spade me-1"></i>
+                        echo "active"; ?>" aria-current="page" href="/games"><i class="bi bi-suit-spade<?php if ($title == "Games")
+                              echo "-fill"; ?> me-1"></i>
                         Games</a>
                 </li>
             </ul>
