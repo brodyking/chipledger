@@ -28,20 +28,33 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="newgamemodal" tabindex="-1" aria-hidden="true">
+        <div class="modal fade border" id="newgamemodal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header border-0">
+                    <div class="modal-header">
                         <h1 class="modal-title fs-5">New Game</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+
+                    <form method="POST" action="/api/v1/game/new">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Date <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="date"
+                                    value="<?php echo date("m-d-Y"); ?>" readonly required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Participants <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" name="participants" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+
+
                 </div>
             </div>
         </div>
