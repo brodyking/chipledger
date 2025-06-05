@@ -25,12 +25,14 @@ if ($isloggedin) {
         "/register" => "/pages/dash.php",
         "/logout" => "/api/{$config["version"]}/auth/logout.php",
         "/games" => "/pages/games.php",
-        "/settings" => "/pages/settings.php"
+        "/settings" => "/pages/settings.php",
+        "/view" => "/pages/view.php"
     ];
 
     $apiRoutes = [
         # API Routes available to only those who are logged in.
-        "/api/v1/auth/logout" => "/api/v1/auth/logout.php"
+        "/api/v1/auth/logout" => "/api/v1/auth/logout.php",
+        "/api/v1/game/new" => "/api/v1/game/new.php"
     ];
 
 } else {
