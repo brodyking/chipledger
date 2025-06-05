@@ -41,7 +41,7 @@ if ($isloggedin) {
     //
     $pageRoutes = [
         # Routes available to only those logged out.
-        "/" => "/pages/login.php",
+        "/" => "/pages/splash.php",
         "/404" => "/pages/404.php",
         "/login" => "/pages/login.php",
         "/register" => "/pages/register.php",
