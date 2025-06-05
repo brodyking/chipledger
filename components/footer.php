@@ -6,10 +6,9 @@
                 <i class="bi bi-circle-half"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" onclick="setTheme('light');" href="#"><i
-                            class="bi bi-brightness-high-fill"></i>
+                <li><a class="dropdown-item" onclick="setTheme('light');"><i class="bi bi-brightness-high-fill"></i>
                         Light</a></li>
-                <li><a class="dropdown-item" onclick="setTheme('dark');" href="#"><i class="bi bi-moon-stars-fill"></i>
+                <li><a class="dropdown-item" onclick="setTheme('dark');"><i class="bi bi-moon-stars-fill"></i>
                         Dark</a></li>
             </ul>
         </div>
