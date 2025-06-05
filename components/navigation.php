@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-primary p-1" data-bs-theme="dark" id="nav">
+<nav class="navbar navbar-expand-lg bg-primary p-0" data-bs-theme="dark" id="nav">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
             <i class="bi bi-bank me-1"></i> Chipledger</a>
