@@ -14,6 +14,14 @@
 </head>
 
 <body data-bs-theme="dark">
+    <nav class="navbar fixed-top bg-body-tertiary p-1 border-0 ps-3 pe-3">
+        <div class="container-fluid p-0 text-secondary">
+            <span class="me-auto"><a href="/" class="text-decoration-none me-3">Chipledger</a></span>
+            <span class="ms-auto"><a href="/login" class="text-decoration-none me-3">Login</a> <a href="/register"
+                    class="text-decoration-none">Register</a></span>
+        </div>
+        </div>
+    </nav>
     <main>
         <div style="max-width:300px;" class="ms-auto mt-5 me-auto">
             <?php include_once "components/alert.php"; ?>
