@@ -24,6 +24,7 @@ Here is the create statement.
 ```sql
 CREATE TABLE "games" (
 	"id"	INTEGER,
+	"name"	TEXT UNIQUE,
 	"username"	TEXT NOT NULL,
 	"data"	TEXT NOT NULL,
 	PRIMARY KEY("id")
