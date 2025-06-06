@@ -34,7 +34,8 @@ if ($isloggedin) {
         "/api/v1/auth/logout" => "/api/v1/auth/logout.php",
         "/api/v1/game/new" => "/api/v1/game/new.php",
         "/api/v1/game/delete" => "/api/v1/game/delete.php",
-        "/api/v1/game/rename" => "/api/v1/game/rename.php"
+        "/api/v1/game/rename" => "/api/v1/game/rename.php",
+        "/api/v1/game/addPlayer" => "/api/v1/game/addPlayer.php"
     ];
 
 } else {
