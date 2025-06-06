@@ -30,16 +30,21 @@ if (isset($_POST["name"]) && isset($_COOKIE["username"]) && isset($_COOKIE["sess
 
 
         $data = [
-            "participants" => [],
+            "totalPot" => 0,
+            "totalCashouts" => 0,
+            "totalBuyins" => 0,
+            "totalPlayers" => 0,
+            "players" => [],
             "buyins" => [],
-            "cashout" => []
+            "cashout" => [],
+            "history" => ""
         ];
         $data = json_encode($data);
         $statement->bindValue(":dataInput", $data, PDO::PARAM_STR);
 
         $success = $statement->execute();
         if ($success) {
-            Header("Location: /games?success=Game Created.");
+            Header("Location: /view?game={$name}&success=Game Created.");
         } else {
             Header("Location: /login?error=Unknown Error");
             //echo "error";
