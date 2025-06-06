@@ -3,11 +3,15 @@
 <link href="/assets/bootstrap/icons/font/bootstrap-icons.min.css" rel="stylesheet">
 <link href="/assets/chipledger/css/main.css" rel="stylesheet">
 
-<!--- Title (Changed by JS) --->
+<!--- Title --->
 <title>
-    <?php if (isset($title)) {
-        echo $title . " - ";
-    } ?>Chipledger
+    <?php if (isset($title) && $title != "Home") {
+        echo $title . " (Chipledger)";
+    } else {
+
+        echo "Chipledger";
+
+    } ?>
 </title>
 
 <!--- Meta Tags --->
