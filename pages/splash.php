@@ -75,8 +75,10 @@
         </p>
 
         <div class="text-center" style="margin-top:100px!important;">
-            <a href="/register" class="btn btn-primary me-1">Create an Account</a>
-            <a href="/login" class="btn btn-secondary ms-1">Login</a>
+            <div class="btn-group" role="group" aria-label="...">
+                <a href="/register" class="btn btn-primary">Register</a>
+                <a href="/login" class="btn btn-secondary">Login</a>
+            </div>
         </div>
 
     </main>
