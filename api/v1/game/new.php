@@ -10,6 +10,12 @@ if (isset($_POST["name"]) && isset($_COOKIE["username"]) && isset($_COOKIE["sess
         die();
     }
 
+    if ($_POST["name"] == "" || $_POST["name"] == null) {
+        Header("Location: /games?error=Game name cannot be blank.");
+        //echo $e;
+        die();
+    }
+
     try {
 
         $db = new PDO("sqlite:" . $config["databaseLocation"]);
