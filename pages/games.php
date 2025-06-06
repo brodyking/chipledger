@@ -53,6 +53,8 @@
                                 $table = "<tr class='w-100'><td><a class='text-decoration-none' href='/view?game={$game["name"]}'>{$game['name']} <i class='bi bi-arrow-right-circle-fill'></i></a></td></tr>" . $table;
                             }
                             echo $table;
+                        } else {
+                            echo "<span class='ms-auto me-auto'>No games found.</span>";
                         }
 
                     } catch (PDOException $e) {
