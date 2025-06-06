@@ -32,7 +32,9 @@ if ($isloggedin) {
     $apiRoutes = [
         # API Routes available to only those who are logged in.
         "/api/v1/auth/logout" => "/api/v1/auth/logout.php",
-        "/api/v1/game/new" => "/api/v1/game/new.php"
+        "/api/v1/game/new" => "/api/v1/game/new.php",
+        "/api/v1/game/delete" => "/api/v1/game/delete.php",
+        "/api/v1/game/rename" => "/api/v1/game/rename.php"
     ];
 
 } else {
