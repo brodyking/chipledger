@@ -158,18 +158,22 @@
                     <div class="modal-header">
                         <h1 class="modal-title fs-5">New Player</h1>
                     </div>
+                    <form action="addPlayer();">
 
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label class="form-label">Name <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="newplayerName" name="oldname" value="" required>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="newplayerName" name="oldname" value=""
+                                    required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" onclick="addPlayer();" data-bs-dismiss="modal">Add
-                            Player</button>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" onclick="addPlayer();"
+                                data-bs-dismiss="modal">Add
+                                Player</button>
+                        </div>
+                    </form>
 
 
                 </div>
