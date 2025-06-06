@@ -66,37 +66,106 @@
     <main id="main">
         <?php include "components/alert.php"; ?>
         <div class="btn-group w-100 mb-4" role="group" aria-label="Basic example">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#newgamemodal" class="btn btn-primary"><i
-                    class="bi bi-plus"></i>
-                Participant</a>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#newgamemodal" class="btn btn-success"><i
-                    class="bi bi-plus"></i>
-                Buy In</a>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#newgamemodal" class="btn btn-warning"><i
-                    class="bi bi-plus"></i>
-                Cashout</a>
+
 
         </div>
 
-        <div class="card">
-            <h4 class="card-header"><?php echo $r["name"]; ?>
-            </h4>
-            <div class="card-body">
+        <div class="row g-2" style="margin: 0px!important;">
+            <div class="col-md ps-0 mt-0">
+                <div class="card">
+                    <h5 class="card-header"><i class="bi bi-dice-5-fill"></i> <?php echo $r["name"]; ?></h5>
+                    <div class="card-body">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md pe-0 mt-0">
+                <div class="card mb-2">
+                    <h5 class="card-header"><i class="bi bi-bar-chart-fill"></i> Stats</h5>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" style="background-color: #dee2e608!important"
+                                id="basic-addon1"><i class="bi bi-piggy-bank-fill me-1"></i> Total Pot</span>
+                            <input type="username" class="form-control" disabled="" value="$0">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h5 class="card-header"><i class="bi bi-bank2"></i> Actions</h5>
+                    <div class="card-body">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#newgamemodal"
+                            class="btn btn-primary w-100 mb-3"><i class="bi bi-person-fill"></i>
+                            Add Player</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#newgamemodal"
+                            class="btn btn-success w-100 mb-3"><i class="bi bi-wallet-fill"></i>
+                            Buy In</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#newgamemodal"
+                            class="btn btn-warning w-100 mb-3"><i class="bi bi-piggy-bank-fill"></i>
+                            Cashout</a>
+                        <div class="btn-group w-100" role="group" aria-label="Basic example">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#renamegamemodal"
+                                class="btn btn-primary"><i class="bi bi-pencil-fill"></i>
+                                Rename Game</a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#deletegamemodal"
+                                class="btn btn-danger"><i class="bi bi-trash-fill"></i>
+                                Delete Game</a>
 
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade border" id="newgamemodal" tabindex="-1" aria-hidden="true">
+
+
+
+        <!-- Rename Game -->
+        <div class="modal fade border" id="renamegamemodal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5">New Game</h1>
+                        <h1 class="modal-title fs-5">Rename Game</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
+                    <form method="POST" action="/api/v1/game/rename">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Old Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="oldname" value="<?php echo $r["name"];
+                                ?>" required readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">New Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="newname" value="<?php echo $username . "-" . date("m-d-Y");
+                                ?>" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
 
 
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Game -->
+        <div class="modal fade border" id="deletegamemodal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Delete Game</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        You are about to delete <b><?php echo $r["name"]; ?></b>. You cannot undo this action.
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/api/<?php echo $config["version"] ?>/game/delete?name=<?php echo $r["name"]; ?>"
+                            class="btn btn-danger">Delete</a>
+                    </div>
                 </div>
             </div>
         </div>
