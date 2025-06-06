@@ -3,10 +3,10 @@ function alert(string $type, $data)
 {
     switch ($type) {
         case "error":
-            echo "<div class='alert alert-danger'><b>Error:</b> {$data}</div>";
+            echo "<div class='alert alert-danger' id='alerterror'><b>Error:</b> {$data}</div>";
             break;
         case "success":
-            echo "<div class='alert alert-success'>{$data}</div>";
+            echo "<div class='alert alert-success' id='alertsuccess'>{$data}</div>";
             break;
         default:
             break;
