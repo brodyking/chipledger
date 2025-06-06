@@ -73,16 +73,22 @@
 
         <h1 class="text-center mt-5 mb-5"><?php echo $r["name"]; ?></h1>
 
-        <div class="d-grid gap-0 row-gap-2" style="margin: 0px!important;grid-template-columns: 1fr 1fr;">
-            <div class="pt-0 p-1">
-                <div class="card">
-                    <h5 class="card-header">History</h5>
+        <div class="row g-2" style="margin: 0px!important;grid-template-columns: 1fr 1fr;">
+            <div class="col-md ps-0 mt-0">
+                <div class="card mb-2">
+                    <h5 class="card-header"><i class="bi bi-person-lines-fill"></i> Players</h5>
+                    <div class="card-body">
+                        <p id="players">id=players</p>
+                    </div>
+                </div>
+                <div class="card mb-2">
+                    <h5 class="card-header"><i class="bi bi-clock-fill"></i> History</h5>
                     <div class="card-body">
                         <p id="history">id=history</p>
                     </div>
                 </div>
             </div>
-            <div class="pt-0 p-1">
+            <div class="col-md ps-0 mt-0">
                 <div class="card mb-2">
                     <h5 class="card-header"><i class="bi bi-bank2"></i> Actions</h5>
                     <div class="card-body">
