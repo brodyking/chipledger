@@ -16,6 +16,17 @@ function hydrate() {
 
     // Hide alerts
     document.getElementById("jserrors").style.display = "none";
+
+    // Players tab
+    let players = data["players"];
+     if (players.length > 0) {
+        let playerList = "<table class='table table-striped border'>";
+        players.forEach(element => {playerList += "<tr><td>"+element+"</td></tr>";});
+        document.getElementById("players").innerHTML = playerList + "</table>";
+    } else {
+        document.getElementById("players").innerHTML = "No participants.";
+    }
+
 }
 
 function rehydrate() {
@@ -29,6 +40,7 @@ function rehydrate() {
     if (document.getElementById("alertsuccess") !== null) {
         document.getElementById("alertsuccess").style.display = "none";
     }
+
 }
 
 hydrate();
