@@ -13,7 +13,7 @@
     <style>
         body {
             opacity: 0;
-            animation: fadeIn 2s forwards;
+            animation: fadeIn 1s forwards;
         }
 
         @keyframes fadeIn {
@@ -43,7 +43,7 @@
 
         <h1 class="mb-3 fw-semibold lh-1 text-center text-gradient splash-title-primary splash-title-mobile"
             style="margin-top:240px;font-size:60pt;">
-            Tired of managing poker buyins?
+            Tired of managing <span class="text-info">poker buyins</span>?
         </h1>
 
 
