@@ -2,7 +2,7 @@
 
 if (isset($_POST["name"]) && isset($_COOKIE["username"]) && isset($_COOKIE["session"])) {
 
-    include_once "../../../scripts/isloggedin.php";
+    include_once "scripts/isloggedin.php";
 
     if (!isloggedin($config["databaseLocation"])) {
         Header("Location: /login?error=Not Authenticated");
@@ -47,8 +47,7 @@ if (isset($_POST["name"]) && isset($_COOKIE["username"]) && isset($_COOKIE["sess
         $db = null;
 
     } catch (PDOException $e) {
-        Header("Location: /login?error=Unknown Error");
-        //echo $e;
+        Header(header: "Location: /login?error=That name has already been taken by someone.");
         die();
     }
 
