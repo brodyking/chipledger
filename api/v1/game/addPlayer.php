@@ -54,7 +54,7 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
         die();
     }
 
-    $data["players"][filter_input(INPUT_GET, "playername")] = 0;
+    array_push($data["players"], filter_input(INPUT_GET, "playername"));
     $data["totalPlayers"] += 1;
 
     $data = json_encode($data);
