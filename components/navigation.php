@@ -1,3 +1,10 @@
+<?php
+
+if (!isset($title)) {
+    $title = "";
+}
+
+?>
 <nav class="navbar navbar-expand-lg bg-primary p-0" data-bs-theme="dark" id="nav">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
