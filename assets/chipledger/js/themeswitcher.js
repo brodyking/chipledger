@@ -4,6 +4,7 @@
 
     function loadTheme(theme) {
         document.body.setAttribute('data-bs-theme', theme);
+        document.getElementById("navdropdown").setAttribute('data-bs-theme', theme);
     }
 
     function getTheme() {

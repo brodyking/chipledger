@@ -35,11 +35,11 @@ if (!isset($title)) {
                         aria-expanded="false">
                         <i class="bi bi-person-circle me-1"></i> <?php echo $username; ?>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item text-white" href="/settings"><i class="bi bi-gear me-1"></i>
+                    <ul class="dropdown-menu" id="navdropdown" data-bs-theme="dark">
+                        <li><a class="dropdown-item text-body" href="/settings"><i class="bi bi-gear me-1"></i>
                                 Settings</a>
                         </li>
-                        <li><a class="dropdown-item text-white" href="/logout"><i class="bi bi-door-open me-1"></i>
+                        <li><a class="dropdown-item text-body" href="/logout"><i class="bi bi-door-open me-1"></i>
                                 Logout</a></li>
                     </ul>
                 </li>
