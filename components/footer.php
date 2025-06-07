@@ -1,6 +1,6 @@
 <nav class="navbar fixed-bottom bg-body-tertiary p-1 border-0 ps-3 pe-3">
     <div class="container-fluid p-0 text-secondary">
-        <span class="me-auto">&copy; 2025 Brody King</span>
+        <span class="me-auto"><?php echo $config["version"]; ?> &middot; &copy; 2025 Brody King</span>
         <div class="dropup-center dropup ms-auto">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-circle-half"></i>
