@@ -49,13 +49,17 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
 
     $data = json_decode($r["data"], true);
 
-    if (isset($data["players"][filter_input(INPUT_GET, "playername")])) {
-        echo json_encode(array("error" => true, "errormessage" => "Player already exists"));
+    if (in_array($_GET["playername"], $data["players"])) {
+        echo json_encode(array("error" => true, "errormessage" => "Player already exists."));
         die();
     }
 
     array_push($data["players"], filter_input(INPUT_GET, "playername"));
     $data["totalPlayers"] += 1;
+    $data["buyins"][filter_input(INPUT_GET, "playername")] = 0;
+    $data["cashouts"][filter_input(INPUT_GET, "playername")] = 0;
+
+    array_push($data["history"], ["type" => "join", "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> has joined the table!"]);
 
     $data = json_encode($data);
 
