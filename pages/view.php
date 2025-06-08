@@ -76,7 +76,7 @@
         <div class="row g-2" style="margin: 0px!important;grid-template-columns: 1fr 1fr;">
             <div class="col-md ps-0 mt-0">
                 <div class="card mb-2">
-                    <h5 class="card-header"><i class="bi bi-person-lines-fill"></i> Players</h5>
+                    <h5 class="card-header"><i class="bi bi-person-lines-fill"></i> Players and Buyins</h5>
                     <div class="card-body">
                         <p id="players">id=players</p>
                     </div>
@@ -95,10 +95,10 @@
                         <a href="#" data-bs-toggle="modal" data-bs-target="#newplayermodal"
                             class="btn btn-primary w-100 mb-3"><i class="bi bi-person-fill"></i>
                             Add Player</a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#newgamemodal"
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#newbuyinmodal"
                             class="btn btn-success w-100 mb-3"><i class="bi bi-wallet-fill"></i>
                             Buy In</a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#newgamemodal"
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#newcashoutmodal"
                             class="btn btn-warning w-100 mb-3"><i class="bi bi-piggy-bank-fill"></i>
                             Cashout</a>
                         <div class="btn-group w-100" role="group" aria-label="Basic example">
@@ -158,7 +158,7 @@
                     <div class="modal-header">
                         <h1 class="modal-title fs-5">New Player</h1>
                     </div>
-                    <form action="addPlayer();">
+                    <form id="addPlayerForm">
 
                         <div class="modal-body">
                             <div class="mb-3">
@@ -169,9 +169,77 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" onclick="addPlayer();"
-                                data-bs-dismiss="modal">Add
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Add
                                 Player</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- New Buyin -->
+        <div class="modal fade border" id="newbuyinmodal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">New Buyin</h1>
+                    </div>
+                    <form id="addBuyinForm">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Player <span class="text-danger">*</span></label>
+                                <select class="form-select" id="buyinNamesList" name="playername" required>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Amount <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="buyinAmount" name="amount"
+                                        value="1.00" step="0.01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Add
+                                Buyin</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- New Cashout -->
+        <div class="modal fade border" id="newcashoutmodal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Cashout</h1>
+                    </div>
+                    <form id="addCashoutForm">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label class="form-label">Player <span class="text-danger">*</span></label>
+                                <select class="form-select" id="cashoutNamesList" name="playername" required>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Amount <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="cashoutAmount" name="amount"
+                                        value="1.00" step="0.01" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cashout</button>
                         </div>
                     </form>
 
@@ -224,6 +292,7 @@
                         action.
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <a href="/api/<?php echo $config["version"] ?>/game/delete?name=<?php echo $r["name"]; ?>"
                             class="btn btn-danger">Delete</a>
                     </div>
