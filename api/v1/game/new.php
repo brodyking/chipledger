@@ -40,10 +40,10 @@ if (isset($_POST["name"]) && isset($_COOKIE["username"]) && isset($_COOKIE["sess
             "totalCashouts" => 0,
             "totalBuyins" => 0,
             "totalPlayers" => 0,
-            "players" => [],
+            "players" => array(),
             "buyins" => [],
-            "cashout" => [],
-            "history" => ""
+            "cashouts" => [],
+            "history" => [],
         ];
         $data = json_encode($data);
         $statement->bindValue(":dataInput", $data, PDO::PARAM_STR);
@@ -58,7 +58,7 @@ if (isset($_POST["name"]) && isset($_COOKIE["username"]) && isset($_COOKIE["sess
         $db = null;
 
     } catch (PDOException $e) {
-        Header(header: "Location: /login?error=That name has already been taken by someone.");
+        Header(header: "Location: /games?error=That name has already been taken by someone.");
         die();
     }
 
