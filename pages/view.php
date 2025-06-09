@@ -71,14 +71,26 @@
             Please enable javascript or update your browser to use this page.
         </div>
 
-        <h1 class="text-center mt-5 mb-5"><?php echo $r["name"]; ?></h1>
+        <h1 class="text-center mt-5 mb-5" style="font-size:3em;"><?php echo $r["name"]; ?></h1>
 
         <div class="row g-2" style="margin: 0px!important;grid-template-columns: 1fr 1fr;">
             <div class="col-md ps-0 mt-0">
                 <div class="card mb-2">
-                    <h5 class="card-header"><i class="bi bi-person-lines-fill"></i> Players and Buyins</h5>
+                    <h5 class="card-header"><i class="bi bi-person-lines-fill"></i> Players Overview</h5>
                     <div class="card-body">
                         <p id="players">id=players</p>
+                    </div>
+                </div>
+                <div class="card mb-2">
+                    <h5 class="card-header"><i class="bi bi-cash"></i> Buyins</h5>
+                    <div class="card-body">
+                        <p id="buyins">id=buyins</p>
+                    </div>
+                </div>
+                <div class="card mb-2">
+                    <h5 class="card-header"><i class="bi bi-door-open-fill"></i> Cashouts</h5>
+                    <div class="card-body">
+                        <p id="cashouts">id=cashouts</p>
                     </div>
                 </div>
                 <div class="card mb-2">
