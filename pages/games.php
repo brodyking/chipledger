@@ -24,7 +24,7 @@
             </h2>
             <div class="card-body">
 
-                <table class="table w-100 table-striped border" style="font-size:1.15em;">
+                <table class="table w-100 border-0" style="font-size:1.15em;">
                     <?php
 
 
@@ -50,11 +50,11 @@
 
                         if ($r) {
                             foreach ($r as $game) {
-                                $table = "<tr class='w-100'><td><a class='text-decoration-none' href='/view?game={$game["name"]}'>{$game['name']} <i class='bi bi-arrow-right-circle-fill'></i></a></td></tr>" . $table;
+                                $table = "<tr class='w-100 border-0'><td class='p-0 border-0'><a class='text-decoration-none btn btn-primary w-100 m-0 mb-2 text-start' href='/view?game={$game["name"]}'>{$game['name']} <i class='bi bi-arrow-right ms-auto'></i></a></td></tr>" . $table;
                             }
                             echo $table;
                         } else {
-                            echo "<span class='ms-auto me-auto'>No games found.</span>";
+                            echo "<tr class='w-100 border-0'><td class='p-0 border-0 text-center pt-5 pb-5'>No games found.</td></tr>";
                         }
 
                     } catch (PDOException $e) {
