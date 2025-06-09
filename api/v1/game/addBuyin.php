@@ -64,7 +64,8 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
     $data["totalPot"] += filter_input(INPUT_GET, "amount");
     $data["buyins"][filter_input(INPUT_GET, "playername")] += filter_input(INPUT_GET, "amount");
 
-    array_push($data["history"], ["type" => "buyin", "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> bought in for <b>$" . filter_input(INPUT_GET, "amount") . "</b>"]);
+    array_push($data["totalHistory"], ["type" => "buyin", "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> bought in for <b>$" . filter_input(INPUT_GET, "amount") . "</b>"]);
+    array_push($data["buyinsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => filter_input(INPUT_GET, "amount")]);
 
     $data = json_encode($data);
 
