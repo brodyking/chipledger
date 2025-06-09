@@ -59,7 +59,7 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
     $data["buyins"][filter_input(INPUT_GET, "playername")] = 0;
     $data["cashouts"][filter_input(INPUT_GET, "playername")] = 0;
 
-    array_push($data["history"], ["type" => "join", "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> has joined the table!"]);
+    array_push($data["totalHistory"], ["type" => "join", "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> has joined the table!"]);
 
     $data = json_encode($data);
 
