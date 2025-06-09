@@ -6,7 +6,7 @@ function errorShow(error) {
 
 function hydrate() {
     let players = data["players"];
-    let history = data["history"];
+    let history = data["totalHistory"];
     // Sets the page url
     window.history.replaceState({page: "current"}, "current page", "/view?game="+gameName);
 
@@ -40,7 +40,7 @@ function hydrate() {
     }    
     
     
-    // Players tab
+    // Overview tab
      if (players.length > 0) {
         let playerList = "<table class='table table-striped border'><thead><td class='border-right border-1'><b>Name</b></td><td class='border-right border-1'><b>Buy in</b></td><td class='border-right border-1'><b>Cash out</b></td><td><b>Net Profit</b></td></thead>";
         players.forEach(element => {
@@ -50,11 +50,35 @@ function hydrate() {
             } else {
                 profit = "$"+Math.abs(profit);
             }
-            playerList += "<tr><td class='border-right border-1'>"+element+"</td><td class='border-right border-1'>$"+data["buyins"][element]+"</td><td class='border-right border-1'>$"+data["cashouts"][element]+"</td><td>"+profit+"</td></tr>";
+            playerList += "<tr><td class='border-right border-1'><b>"+element+"</b></td><td class='border-right border-1'>$"+data["buyins"][element]+"</td><td class='border-right border-1'>$"+data["cashouts"][element]+"</td><td>"+profit+"</td></tr>";
         });
         document.getElementById("players").innerHTML = playerList + "</table>";
     } else {
         document.getElementById("players").innerHTML = "No participants.";
+    }
+
+    // Buyins tab
+     if (players.length > 0) {
+        let buyinListArray = data["buyinsHistory"];
+        let buyinList = "<table class='table table-striped border'><thead><td class='border-right border-1'><b>Name</b></td><td class='border-right border-1'><b>Amount</b></td></thead>";
+        buyinListArray.forEach(element => {
+            buyinList += "<tr><td class='border-right border-1'><b>"+element["name"]+"</b></td><td class='border-right border-1'>$"+element["value"]+"</td></tr>";
+        });
+        document.getElementById("buyins").innerHTML = buyinList + "</table>";
+    } else {
+        document.getElementById("buyins").innerHTML = "No Buyins.";
+    }
+
+    // Cashouts tab
+     if (players.length > 0) {
+        let buyinListArray = data["cashoutsHistory"];
+        let buyinList = "<table class='table table-striped border'><thead><td class='border-right border-1'><b>Name</b></td><td class='border-right border-1'><b>Amount</b></td></thead>";
+        buyinListArray.forEach(element => {
+            buyinList += "<tr><td class='border-right border-1'><b>"+element["name"]+"</b></td><td class='border-right border-1'>$"+element["value"]+"</td></tr>";
+        });
+        document.getElementById("cashouts").innerHTML = buyinList + "</table>";
+    } else {
+        document.getElementById("cashouts").innerHTML = "No Cashouts.";
     }
 
     // Hide alerts
