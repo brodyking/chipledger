@@ -35,7 +35,7 @@
         </div>
         </div>
     </nav>
-    <main style="margin-bottom:100px;">
+    <main style="margin-bottom:50px;">
         <div style="max-width:800px;" class="ms-auto mt-5 me-auto">
             <?php include_once "components/alert.php"; ?>
         </div>
