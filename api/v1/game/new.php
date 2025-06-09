@@ -36,14 +36,22 @@ if (isset($_POST["name"]) && isset($_COOKIE["username"]) && isset($_COOKIE["sess
 
 
         $data = [
+            // List of individual players.
+            "players" => [],
+            // Array of players and their total buyins
+            "buyins" => [],
+            // Array of players and their total cashouts 
+            "cashouts" => [],
+            // Total values for the game, summed up.
+            // Pot changes depending on buyins and cashouts.
             "totalPot" => 0,
             "totalCashouts" => 0,
             "totalBuyins" => 0,
             "totalPlayers" => 0,
-            "players" => array(),
-            "buyins" => [],
-            "cashouts" => [],
-            "history" => [],
+            // Logs of just each action
+            "buyinsHistory" => [],
+            "cashoutsHistory" => [],
+            "totalHistory" => [],
         ];
         $data = json_encode($data);
         $statement->bindValue(":dataInput", $data, PDO::PARAM_STR);
