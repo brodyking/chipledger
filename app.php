@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--- Styles --->
+    <link href="/lib/bootswatch-5/dist/lumen/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/bootstrap/icons/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="/lib/chipledger/css/main.css" rel="stylesheet">
+
+    <!--- Title --->
+    <title>
+        Chipledger
+    </title>
+
+    <!--- Meta Tags --->
+    <meta name="title" content="Chip Ledger">
+    <meta name="description" content="Manage your poker home game buy ins">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Brody King">
+
+    <!--- PWA and Icons --->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/lib/chipledger/img/logo.png">
+    <link href="assets/logo-180.png" rel="apple-touch-icon" sizes="180x180">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Pouchtrack">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" con tent="#272057">
+
+</head>
+
+<body data-bs-theme="dark">
+
+    <!-- Application Skeleton -->
+    <div id="nav"></div>
+    <main id="main"></main>
+    <div id="footer"></div>
+
+
+    <!-- Bootstrap and Themes -->
+    <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/chipledger/js/themeswitcher.js"></script>
+
+    <!-- Scripts included after auth -->
+    <?php
+    echo "<script>const version = '{$config["site.version"]}'</script>";
+    if (isloggedin($config["database.location"])) {
+        echo "<script>const username = '{$username}';const siteName = '{$config["site.name"]}';const d = new Date();const dateString = d.getDay() + '-' + d.getMonth() + '-' + d.getFullYear();</script>";
+        echo '<script src="/lib/chipledger/js/view.js"></script>';
+        echo '<script src="/lib/chipledger/js/components.js"></script>';
+        echo '<script src="/lib/chipledger/js/pages.js"></script>';
+    } else {
+        echo "<script src='/lib/chipledger/js/splash.js'></script>";
+    }
+    ?>
+
+    <!-- Footer -->
+    <script src="/lib/chipledger/js/footer.js"></script>
+
+</body>
+
+</html>
