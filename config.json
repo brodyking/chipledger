@@ -1,4 +1,7 @@
 {
-    "url": "localhost",
-    "version": "v1"
+    "site.name": "Chipledger",
+    "site.url": "localhost",
+    "site.version": "v1.0",
+
+    "database.location": null 
 }
