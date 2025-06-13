@@ -8,7 +8,7 @@ Over the past few years, I have been learning new skills and applying them on sm
     <li>Learn javascript routing and sqlite databases</li>
     <li>Solve the problem of missing money when I play poker with my friends.</li>
 </ol>
-Since then, I have solved both problems. I wrote this website in vanilla Javascript. No React, no framework, just some php for the backend and lots of DOM manipulation. This project, and many others, are <a href='https://github.com/brodyking/chipledger'>open source</a> on my GitHub.
+Since then, I have solved both problems. I wrote this website in vanilla Javascript. No React or other libraries (besides bootstrap), just some php for the backend and lots of DOM manipulation. This project, and many others, are <a href='https://github.com/brodyking/chipledger'>open source</a> on my GitHub.
 </p>
 <p>Enough about me though. If you feel this service has given you even just <b>$1</b> worth of value, a donation is greatly appreciated. Here are the operational costs below that are currently being paid out of pocket.</p>
 <table class='table table-striped'>
