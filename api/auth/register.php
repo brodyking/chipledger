@@ -8,7 +8,7 @@ if (isset($_GET["username"]) && isset($_GET["email"]) && isset($_GET["password"]
 
         $session = random_int(0, 999999999999999999);
 
-        $sql = "INSERT INTO users (username,email,password,session) VALUES (:usernameInput,:emailInput,:passwordInput,:sessionInput);";
+        $sql = "INSERT INTO users (username,email,password,session,joindate) VALUES (:usernameInput,:emailInput,:passwordInput,:sessionInput,:joindateInput);";
 
         $statement = $db->prepare($sql);
 
@@ -23,6 +23,8 @@ if (isset($_GET["username"]) && isset($_GET["email"]) && isset($_GET["password"]
         $statement->bindValue(":passwordInput", $password, PDO::PARAM_STR);
 
         $statement->bindValue(":sessionInput", $session, PDO::PARAM_INT);
+
+        $statement->bindValue(":joindateInput", date("m/d/Y"), PDO::PARAM_STR);
 
         $success = $statement->execute();
         if ($success) {
