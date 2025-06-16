@@ -1,5 +1,8 @@
-<h1><img src="/lib/chipledger/img/logo.png" height="25x"> Chipledger </h1>
+<h1>Chipledger </h1>
+
 Chipledger is a web app that tracks buyins and cashouts for poker/blackjack home games.
+
+<img src="lib/chipledger/img/screenshot.png">
 
 ## Requirements
 This project uses/requires:
