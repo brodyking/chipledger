@@ -2,6 +2,18 @@
 <html>
 
 <head>
+    <!---
+
+
+    Project created and maintained by Brody King.
+
+    https://github.com/brodyking/chipledger/
+    https://benadryl.dev
+
+    <3 for supporting this project.
+
+
+    --->
     <!--- Styles --->
     <link href="/lib/bootswatch-5/dist/lumen/bootstrap.min.css" rel="stylesheet">
     <link href="/lib/bootstrap/icons/font/bootstrap-icons.min.css" rel="stylesheet">
