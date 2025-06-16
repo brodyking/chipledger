@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["name"]) && isset($_GET["playername"]) && isset($_GET["amount"])) {
+if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["name"]) && isset($_GET["playername"]) && isset($_GET["amount"]) && isset($_GET["method"])) {
 
     if (!isloggedin($config["database.location"])) {
         echo json_encode(array("error" => true, "errormessage" => "Not Authenticated"));
@@ -67,8 +67,8 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
     $data["totalPot"] -= filter_input(INPUT_GET, "amount");
     $data["cashouts"][filter_input(INPUT_GET, "playername")] += filter_input(INPUT_GET, "amount");
 
-    array_push($data["totalHistory"], ["type" => "cashout", "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> has cashed out for <b>$" . filter_input(INPUT_GET, "amount") . "</b>"]);
-    array_push($data["cashoutsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => filter_input(INPUT_GET, "amount")]);
+    array_push($data["totalHistory"], ["type" => "cashout", "method" => filter_input(INPUT_GET,"method"), "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> has cashed out for <b>$" . filter_input(INPUT_GET, "amount") . "</b>"]);
+    array_push($data["cashoutsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => filter_input(INPUT_GET, "amount"), "method" => filter_input(INPUT_GET,"method"),]);
 
     $data = json_encode($data);
 
