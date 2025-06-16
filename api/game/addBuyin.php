@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["name"]) && isset($_GET["playername"]) && isset($_GET["amount"])) {
+if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["name"]) && isset($_GET["playername"]) && isset($_GET["amount"]) && isset($_GET["method"])) {
 
     include_once "lib/chipledger/php/isloggedin.php";
 
@@ -64,8 +64,8 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
     $data["totalPot"] += filter_input(INPUT_GET, "amount");
     $data["buyins"][filter_input(INPUT_GET, "playername")] += filter_input(INPUT_GET, "amount");
 
-    array_push($data["totalHistory"], ["type" => "buyin", "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> bought in for <b>$" . filter_input(INPUT_GET, "amount") . "</b>"]);
-    array_push($data["buyinsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => filter_input(INPUT_GET, "amount")]);
+    array_push($data["totalHistory"], ["type" => "buyin", "method" => filter_input(INPUT_GET,"method"),"message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> bought in for <b>$" . filter_input(INPUT_GET, "amount") . "</b>"]);
+    array_push($data["buyinsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => filter_input(INPUT_GET, "amount"), "method" => filter_input(INPUT_GET,"method"),]);
 
     $data = json_encode($data);
 
