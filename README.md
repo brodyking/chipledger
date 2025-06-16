@@ -35,4 +35,4 @@ I will write something better up at some point. I am tired.
 - [x] Landing page
 - [ ] Mobile focus/PWA
 - [ ] More interesting splash page
-- [ ] Track transaction method (venmo/cash/etc)
+- [x] Track transaction method (venmo/cash/etc)
