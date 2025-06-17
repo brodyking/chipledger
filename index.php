@@ -38,7 +38,8 @@ $apiRoutes = [
     "/api/game/get" => "/api/game/get.php",
 
     // User API calls
-    "/api/user/get" => "/api/user/get.php"
+    "/api/user/get" => "/api/user/get.php",
+    "/api/user/changePassword" => "/api/user/changePassword.php"
 ];
 
 // Removes extra "/" at the end of the request string if present.
