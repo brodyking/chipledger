@@ -1,6 +1,3 @@
 <?php
 
-$data = "<h4 class='pb-1'>Version 1.0 Release</h4>
-Todo.";
-
-echo json_encode(array("data" => $data));
+echo json_encode(array("data" => file_get_contents("api/data/raw/releaseNotes.html")));
