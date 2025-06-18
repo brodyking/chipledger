@@ -51,7 +51,16 @@
 
     <!-- Application Skeleton -->
     <div id="nav"></div>
-    <main id="main"></main>
+    <main id="main">
+        <h2 class="mt-5 border-bottom border-1 pb-2">Please enable JavaScript to use Chipledger.</h2>
+        <p>This app requires JavaScript to be used. If you believe you have JS enabled, you may have the following issues:
+            <ol>
+                <li>Your browser is outdated</li>
+                <li>Your adblocker is blocking this page from rendering successfully.</li>
+            </ol>
+            Sorry for the inconvenience.
+        </p>
+    </main>
     <div id="footer"></div>
 
 
