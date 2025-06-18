@@ -1,2 +1,42 @@
-<h4 class='pb-1'>Version 1.0 Release</h4>
-Todo.
+<h2 class='pb-1 border-bottom border-1 pb-2'>Version 1.0 Release</h2>
+This is the first major release of Chipledger. Here are the features included in this release:<br>
+<style>
+    .releaseNotesList > ol > li,.releaseNotesList > ol > li > ul > li {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .releaseNotesList > ol > li > ul > li:first-child {
+        padding-top: 10px;
+    }
+    .releaseNotesList {
+        margin-top: 10px;
+        display: block;
+    }
+</style>
+<b class="releaseNotesList">
+    <ol>
+        <li>
+            Working games, including:
+            <ul>
+                <li>Adding multiple players, buyins, and cashouts.</li>
+                <li>Different payment methods for each buyin.</li>
+                <li>History of all transactions and player interactions.</li>
+            </ul>
+        </li>
+        <li>
+            A fully functional backend API, including:
+            <ul>
+                <li>Authentication: Logins, Logouts, and Registration.</li>
+                <li>Game Interactions: Buyins, Cashouts, Adding Players, Deleting games, Listing all games available, Creating new games, and Renaming games.</li>
+                <li>Other data fetching, including Release Notes and the Donation page. These are also cached in the browser to avoid requesting static content twice.</li>
+            </ul>
+        </li>
+        <li>
+            A desktop and mobile friendly UI
+            <ul>
+                <li>Created with Bootstrap 5.3 and Bootswatch 5</li>
+                <li>All actions, besides settings, do not cause a page refresh. This makes the app faster as less data has to travel on each action, and in addition works well as a PWA.</li>
+            </ul>
+        </li>
+    </ol>
+</b>
