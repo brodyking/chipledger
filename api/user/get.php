@@ -36,6 +36,11 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"])) {
             exit();
         }
 
+        $newpass = "";
+        for ($i = 0; $i < strlen($r["password"]); $i++) {
+            $newpass = $newpass . "#";
+        }
+        $r["password"] = $newpass;
         echo json_encode($r);
 
     } catch (PDOException $e) {
