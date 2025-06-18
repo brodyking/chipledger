@@ -5,7 +5,7 @@
 // Routing for all pages, (pre page loads)
 $request = $_SERVER["REQUEST_URI"]; // Request data
 $config = json_decode(file_get_contents("config.json"), true); // Configuration data
-$config["database.location"] = "database/database.db"; // Set the database location. Used in API.
+$config["database.location"] = __DIR__ . "/database/database.db"; // Set the database location. Used in API.
 
 require_once __DIR__ . "/lib/chipledger/php/isloggedin.php"; // Checks if user is logged in and authenticates their session ID. 
 
@@ -39,7 +39,8 @@ $apiRoutes = [
 
     // User API calls
     "/api/user/get" => "/api/user/get.php",
-    "/api/user/changePassword" => "/api/user/changePassword.php"
+    "/api/user/changePassword" => "/api/user/changePassword.php",
+    "/api/user/changeEmail" => "/api/user/changeEmail.php"
 ];
 
 // Removes extra "/" at the end of the request string if present.
