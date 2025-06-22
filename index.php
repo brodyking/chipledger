@@ -40,7 +40,8 @@ $apiRoutes = [
     // User API calls
     "/api/user/get" => "/api/user/get.php",
     "/api/user/changePassword" => "/api/user/changePassword.php",
-    "/api/user/changeEmail" => "/api/user/changeEmail.php"
+    "/api/user/changeEmail" => "/api/user/changeEmail.php",
+    "/api/user/delete" => "/api/user/delete.php"
 ];
 
 // Removes extra "/" at the end of the request string if present.
