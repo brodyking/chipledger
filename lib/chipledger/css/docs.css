@@ -1,0 +1,9 @@
+h1,
+h2,
+h3,
+h4 {
+    padding-bottom: .5rem !important;
+    margin-top: .5rem !important;
+    border-width: 1px !important;
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
