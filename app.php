@@ -37,13 +37,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="/lib/chipledger/img/logo.png">
-    <link href="assets/logo-180.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/lib/chipledger/img/logo-mobile.png" rel="apple-touch-icon" sizes="180x180">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Pouchtrack">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="theme-color" con tent="#272057">
+    <meta name="theme-color" content="#158CBA">
 
 </head>
 
