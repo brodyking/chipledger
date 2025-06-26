@@ -20,6 +20,7 @@ main {
 }
 
 main {
+  padding-top: 50px!important;
   padding: 20px;
   padding-bottom: 50px;
 }
@@ -28,4 +29,21 @@ main {
 .navbar-brand:hover,
 .dropdown-item:hover {
   cursor: pointer !important;
+}
+
+
+/* Smartphones ----------- */
+@media only screen 
+and (max-width : 795px) {
+  .nomobile {
+    display: none;
+  }
+  .footer {
+    padding-bottom: 30px!important;
+    padding-left: 30px!important;
+    padding-right: 30px!important;
+  }
+  #main {
+    margin-bottom: 100px!important;
+  }
 }
