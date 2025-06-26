@@ -1,0 +1,15 @@
+{
+  "short_name": "Chipledger",
+  "name": "Chipledger",
+  "icons": [
+    {
+      "src": "/lib/chipledger/img/logo-mobile.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#158CBA",
+  "scope": "/"
+}
