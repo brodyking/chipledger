@@ -40,7 +40,7 @@ if (isset($_GET["username"]) && isset($_GET["email"]) && isset($_GET["password"]
         $db = null;
 
     } catch (PDOException $e) {
-        echo json_encode(array("error" => true, "errormessage" => "Unknown Error"));
+        echo json_encode(array("error" => true, "errormessage" => "Username already taken."));
         //echo $e;
         die();
     }
