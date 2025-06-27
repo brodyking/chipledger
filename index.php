@@ -44,6 +44,13 @@ $apiRoutes = [
     "/api/user/delete" => "/api/user/delete.php"
 ];
 
+// Routes for Docs
+$docRoutes = [
+    "/docs" => "/lib/chipledger/docs/index.html",
+    "/docs/about-this-project" => "/lib/chipledger/docs/about-this-project.html",
+    "/docs/api" => "/lib/chipledger/docs/api.html"
+];
+
 // Removes extra "/" at the end of the request string if present.
 if (strlen($request) > 1 && substr($request, -1) == "/") {
     $request = substr($request, 0, strlen($request) - 1);
@@ -54,7 +61,15 @@ if (str_contains($request, "?")) {
 }
 
 // API Routing
-if (substr($request, 0, 4) == "/api") {
+if (substr($request,0,5) == "/docs") {
+    require __DIR__ . "/lib/chipledger/docs/top.php";
+    if (isset($docRoutes[$request])) {
+        include __DIR__ . $docRoutes[$request];
+    } else {
+        include __DIR__ . "/lib/chipledger/docs/404.html";
+    }
+    require __DIR__ . "/lib/chipledger/docs/bottom.php";
+} else if (substr($request, 0, 4) == "/api") {
     header(header: 'Content-type: text/plain; charset=utf-8');
     if (isset($apiRoutes[$request])) {
         require __DIR__ . $apiRoutes[$request];
