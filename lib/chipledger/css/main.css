@@ -9,6 +9,10 @@
   src: url("/lib/chipledger/fonts/SourceSans3-VariableFont_wght.ttf");
 }
 
+thead {
+  font-weight: bold;
+}
+
 body {
   font-family: SourceSans3;
 }
