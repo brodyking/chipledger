@@ -17,8 +17,7 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["ne
 
         $username = filter_input(INPUT_COOKIE, 'username');
         $session = filter_input(INPUT_COOKIE, 'session');
-        $oldpassword = filter_input(INPUT_GET, 'oldpassword');
-        $newpassword = filter_input(INPUT_GET, 'newpassword');
+        $newpassword = urldecode(filter_input(INPUT_GET, 'newpassword'));
 
         $statement->bindValue(":usernameInput", $username, PDO::PARAM_STR);
         $statement->bindValue(":newPasswordInput", $newpassword, PDO::PARAM_STR);

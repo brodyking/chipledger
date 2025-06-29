@@ -17,7 +17,7 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["ne
 
         $username = filter_input(INPUT_COOKIE, 'username');
         $session = filter_input(INPUT_COOKIE, 'session');
-        $newemail = filter_input(INPUT_GET, 'newemail');
+        $newemail = urldecode(filter_input(INPUT_GET, 'newemail'));
 
         $statement->bindValue(":usernameInput", $username, PDO::PARAM_STR);
         $statement->bindValue(":newEmailInput", $newemail, PDO::PARAM_STR);

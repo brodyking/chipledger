@@ -10,10 +10,10 @@ if (isset($_GET["username"]) && isset($_GET["password"])) {
 
         $statement = $db->prepare($sql);
 
-        $username = filter_input(INPUT_GET, 'username');
+        $username = urldecode(filter_input(INPUT_GET, 'username'));
         $statement->bindValue(":usernameInput", $username, PDO::PARAM_STR);
 
-        $password = filter_input(INPUT_GET, 'password');
+        $password = urldecode(filter_input(INPUT_GET, 'password'));
         $statement->bindValue(":passwordInput", $password, PDO::PARAM_STR);
 
         $statement->execute(); // <--- YOU WERE MISSING THIS LINE!
