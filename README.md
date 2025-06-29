@@ -5,7 +5,7 @@ Chipledger is a web app that tracks buyins and cashouts for poker/blackjack home
 <img src="lib/chipledger/img/screenshot.png">
 
 <p align="center">
-<a href="https://chipledger.com"><b>Chipledger.com</b></a> - <a href="https://chipledger.com/docs/"><b>Documentation</b></a>
+<a href="https://chipledger.com"><b>Chipledger.com</b></a> - <a href="https://chipledger.com/docs/"><b>Documentation</b></a><br><br>
 </p>
 
 ## Requirements
