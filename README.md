@@ -4,6 +4,10 @@ Chipledger is a web app that tracks buyins and cashouts for poker/blackjack home
 
 <img src="lib/chipledger/img/screenshot.png">
 
+<p align="center">
+<a href="https://chipledger.com"><b>Chipledger.com</b></a> - <a href="https://chipledger.com/docs/"><b>Documentation</b></a>
+</p>
+
 ## Requirements
 This project uses/requires:
 
@@ -20,13 +24,6 @@ Bootstrap, and Bootswatch are included in the repo. No need to download elsewher
 ```bash
 git clone https://github.com/brodyking/chipledger.git
 ```
-
-## Documentation
-1. Everything todo with data is done from /api/
-2. Routing for the API is done within `index.php`, and routing for pages is done within `/lib/chipledger/js/pages.js`
-3. SPA mindset. Almost no refreshing should be happening. Keep the data transfers low.
-
-I will write something better up at some point. I am tired.
 
 ## Roadmap
 
