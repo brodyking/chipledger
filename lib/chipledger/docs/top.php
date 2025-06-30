@@ -32,7 +32,8 @@
 
     <style>
         main {
-            padding-top: 20px!important;;
+            padding-top: 20px !important;
+            ;
         }
     </style>
 
@@ -41,8 +42,18 @@
 <body data-bs-theme="dark">
     <nav class="navbar fixed-top navbar-expand-lg p-0 bg-primary" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/docs/" style="color: #fff;">
-                <i class="bi bi-book-fill me-1 fs-5"></i> Chipledger Docs</a>
-            </button>
+            <span class="navbar-brand text-body-tertiary" href="/docs/">
+                <a href="/" class="text-white text-decoration-none"><i class="bi bi-bank me-1"></i> Chipledger</a> / <a href="/docs/"
+                    class="text-white text-decoration-none">Documentation</a>
+            </span>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" style="color:#fff;" aria-current="page"
+                    href="https://github.com/brodyking/chipledger/"><i
+                    class="align-middle bi bi-github me-1"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" style="color:#fff;" aria-current="page"
+                    href="https://benadryl.dev"><i class="align-middle bi bi-capsule me-1"></i></a></li>
+                </ul>
+            </div>
         </div>
     </nav>
