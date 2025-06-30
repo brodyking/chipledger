@@ -25,11 +25,20 @@
         Chipledger Docs
     </title>
 
+
     <!--- PWA and Icons --->
+    <link rel="manifest" href="/manifest.json" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="/lib/chipledger/img/logo-mobile.png">
-
+    <link rel="shortcut icon" type="image/x-icon" href="/lib/chipledger/img/logo.png">
+    <link href="/lib/chipledger/img/logo-mobile.png" rel="apple-touch-icon" sizes="180x180">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Pouchtrack">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#158CBA">
+    
     <style>
         main {
             padding-top: 20px !important;
