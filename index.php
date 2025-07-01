@@ -50,7 +50,8 @@ $docRoutes = [
     "/docs/about-this-project" => "/lib/chipledger/docs/about-this-project.html",
     "/docs/api" => "/lib/chipledger/docs/api.html",
     "/docs/javascript-and-rendering" => "/lib/chipledger/docs/javascript-and-rendering.html",
-    "/docs/tos" => "/lib/chipledger/docs/tos.html"
+    "/docs/tos" => "/lib/chipledger/docs/tos.html",
+    "/docs/cookies" => "/lib/chipledger/docs/cookies.html"
 ];
 
 // Removes extra "/" at the end of the request string if present.
