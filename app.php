@@ -71,10 +71,14 @@
 
     <!-- Scripts included after auth -->
     <?php
+
+    echo "<script>const version = '{$config["site.version"]}'</script>";
+
     if (isloggedin($config["database.location"])) {
-        echo "<script>const version = '{$config["site.version"]}';const username = '{$username}';const siteName = '{$config["site.name"]}';const d = new Date();const dateString = d.getDay() + '-' + d.getMonth() + '-' + d.getFullYear();".file_get_contents("lib/chipledger/js/view.js").file_get_contents("lib/chipledger/js/components.js").file_get_contents("lib/chipledger/js/pages.js")."</script>";
+        echo "<script>const username = '{$username}';const siteName = '{$config["site.name"]}';const d = new Date();const dateString = d.getDay() + '-' + d.getMonth() + '-' + d.getFullYear();</script>";
+        echo "<script src='lib/chipledger/js/view.js'></script><script src='lib/chipledger/js/components.js'></script><script src='lib/chipledger/js/pages.js'></script>";
     } else {
-        echo "<script>const version = '{$config["site.version"]}';".file_get_contents("lib/chipledger/js/splash.js")."</script>";
+        echo "<script src='lib/chipledger/js/splash.js'></script>";
     }
     ?>
 
