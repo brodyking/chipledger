@@ -39,11 +39,18 @@ main {
   margin-top: 20px;
 }
 
+.onlymobile {
+  display: none;
+}
+
 /* Smartphones ----------- */
 @media only screen 
 and (max-width : 795px) {
   .nomobile {
     display: none;
+  }
+  .onlymobile {
+    display: block;
   }
   .footer {
     padding-bottom: 30px!important;
