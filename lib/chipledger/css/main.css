@@ -35,6 +35,9 @@ main {
   cursor: pointer !important;
 }
 
+#errorMessage, #jserrors {
+  margin-top: 20px;
+}
 
 /* Smartphones ----------- */
 @media only screen 
