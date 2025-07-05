@@ -19,41 +19,58 @@ if ($isloggedin) {
 // Routes for API calls
 $apiRoutes = [
     // Auth API calls
-    "/api/auth/register" => "/api/auth/register.php",
-    "/api/auth/login" => "/api/auth/login.php",
-    "/api/auth/logout" => "/api/auth/logout.php",
+    "/api/auth/register" => "/lib/chipledger/api/auth/register.php",
+    "/api/auth/login" => "/lib/chipledger/api/auth/login.php",
+    "/api/auth/logout" => "/lib/chipledger/api/auth/logout.php",
 
     // Content API calls
-    "/api/data/releaseNotes" => "/api/data/releaseNotes.php",
-    "/api/data/donate" => "/api/data/donate.php",
+    "/api/data/releaseNotes" => "/lib/chipledger/api/data/releaseNotes.php",
 
     // Game API calls
-    "/api/game/new" => "/api/game/new.php",
-    "/api/game/delete" => "/api/game/delete.php",
-    "/api/game/list" => "/api/game/list.php",
-    "/api/game/rename" => "/api/game/rename.php",
-    "/api/game/addPlayer" => "/api/game/addPlayer.php",
-    "/api/game/addBuyin" => "/api/game/addBuyin.php",
-    "/api/game/addCashout" => "/api/game/addCashout.php",
-    "/api/game/get" => "/api/game/get.php",
+    "/api/game/new" => "/lib/chipledger/api/game/new.php",
+    "/api/game/delete" => "/lib/chipledger/api/game/delete.php",
+    "/api/game/list" => "/lib/chipledger/api/game/list.php",
+    "/api/game/rename" => "/lib/chipledger/api/game/rename.php",
+    "/api/game/addPlayer" => "/lib/chipledger/api/game/addPlayer.php",
+    "/api/game/addBuyin" => "/lib/chipledger/api/game/addBuyin.php",
+    "/api/game/addCashout" => "/lib/chipledger/api/game/addCashout.php",
+    "/api/game/get" => "/lib/chipledger/api/game/get.php",
 
     // User API calls
-    "/api/user/get" => "/api/user/get.php",
-    "/api/user/changePassword" => "/api/user/changePassword.php",
-    "/api/user/changeEmail" => "/api/user/changeEmail.php",
-    "/api/user/delete" => "/api/user/delete.php"
+    "/api/user/get" => "/lib/chipledger/api/user/get.php",
+    "/api/user/changePassword" => "/lib/chipledger/api/user/changePassword.php",
+    "/api/user/changeEmail" => "/lib/chipledger/api/user/changeEmail.php",
+    "/api/user/delete" => "/lib/chipledger/api/user/delete.php"
 ];
 
 // Routes for Docs
 $docRoutes = [
-    "/docs" => "/lib/chipledger/docs/index.html",
-    "/docs/about-this-project" => "/lib/chipledger/docs/about-this-project.html",
-    "/docs/api" => "/lib/chipledger/docs/api.html",
-    "/docs/javascript-and-rendering" => "/lib/chipledger/docs/javascript-and-rendering.html",
-    "/docs/tos" => "/lib/chipledger/docs/tos.html",
-    "/docs/cookies" => "/lib/chipledger/docs/cookies.html",
-    "/docs/database" => "/lib/chipledger/docs/database.html"
+    "/docs" => "/lib/chipledger/static/docs/index.html",
+
+    // Articles
+    "/docs/about-this-project" => "/lib/chipledger/static/docs/about-this-project.html",
+    "/docs/api" => "/lib/chipledger/static/docs/api.html",
+    "/docs/javascript-and-rendering" => "/lib/chipledger/static/docs/javascript-and-rendering.html",
+    "/docs/tos" => "/lib/chipledger/static/docs/tos.html",
+    "/docs/cookies" => "/lib/chipledger/static/docs/cookies.html",
+    "/docs/database" => "/lib/chipledger/static/docs/database.html",
+    "/docs/file-structure" => "/lib/chipledger/static/docs/file-structure.html"
 ];
+
+// Routes for Blog
+$blogRoutes = [
+    "/blog" => "/lib/chipledger/static/blog/index.html",
+
+    // Posts
+    "/blog/2025/07/02/v1.1-patches-and-more" => "/lib/chipledger/static/blog/2025/07/02/v1.1-patches-and-more.html"
+];
+
+// Routes for Donate
+$donateRoutes = [
+    "/donate" => "/lib/chipledger/static/donate/index.html"
+];
+
+
 
 // Removes extra "/" at the end of the request string if present.
 if (strlen($request) > 1 && substr($request, -1) == "/") {
@@ -64,26 +81,64 @@ if (str_contains($request, "?")) {
     $request = substr($request, 0, strpos($request, "?"));
 }
 
-// API Routing
-if (substr($request,0,5) == "/docs") {
-    require __DIR__ . "/lib/chipledger/docs/top.php";
-    if (isset($docRoutes[$request])) {
-        include __DIR__ . $docRoutes[$request];
-    } else {
-        include __DIR__ . "/lib/chipledger/docs/404.html";
-    }
-    require __DIR__ . "/lib/chipledger/docs/bottom.php";
+$route = "js";
+if (substr($request, 0, 5) == "/docs") {
+    $route = "docs";
+} else if (substr($request, 0, 7) == "/donate") {
+    $route = "donate";
+} else if (substr($request, 0, 5) == "/blog") {
+    $route = "blog";
 } else if (substr($request, 0, 4) == "/api") {
-    header(header: 'Content-type: text/plain; charset=utf-8');
-    if (isset($apiRoutes[$request])) {
-        require __DIR__ . $apiRoutes[$request];
-        return true;
-    } else {
-        echo json_encode(array("error" => "invalid request"), JSON_PRETTY_PRINT);
-        return false;
-    }
-} else {
-    // Page routing
-    require __DIR__ . "/app.php";
-    return true;
+    $route = "api";
+}
+
+switch ($route) {
+    case "docs":
+        // Documentation route
+        require __DIR__ . "/lib/chipledger/static/docs/top.php"; // Top of page
+        // Page content
+        if (isset($docRoutes[$request])) {
+            include __DIR__ . $docRoutes[$request];
+        } else {
+            include __DIR__ . "/lib/chipledger/static/docs/404.html";
+        }
+        require __DIR__ . "/lib/chipledger/static/docs/bottom.php"; // Bottom of page
+        break;
+    case "donate":
+        // Donation route
+        require __DIR__ . "/lib/chipledger/static/donate/top.php"; // Top of page
+        // Page content
+        if (isset($donateRoutes[$request])) {
+            include __DIR__ . $donateRoutes[$request];
+        } else {
+            include __DIR__ . "/lib/chipledger/static/donate/404.html";
+        }
+        require __DIR__ . "/lib/chipledger/static/donate/bottom.php"; // Bottom of page
+        break;
+    case "blog":
+        // Blog route
+        require __DIR__ . "/lib/chipledger/static/blog/top.php"; // Top of page
+        // Page content
+        if (isset($blogRoutes[$request])) {
+            include __DIR__ . $blogRoutes[$request];
+        } else {
+            include __DIR__ . "/lib/chipledger/static/blog/404.html";
+        }
+        require __DIR__ . "/lib/chipledger/static/docs/bottom.php"; // Bottom of page
+        break;
+    case "api":
+        // API route
+        header(header: 'Content-type: text/plain; charset=utf-8'); // UTF-8 Charset
+        // API Content
+        if (isset($apiRoutes[$request])) {
+            require __DIR__ . $apiRoutes[$request];
+        } else {
+            echo json_encode(array("error" => "invalid request"), JSON_PRETTY_PRINT);
+        }
+        break;
+    default:
+        // App
+        // This has the skeleton for the app, and includes the javascript.
+        require __DIR__ . "/app.php";
+        break;
 }

@@ -51,10 +51,13 @@
 <body data-bs-theme="dark">
     <nav class="navbar fixed-top navbar-expand-lg p-0 bg-primary" id="navbar">
         <div class="container-fluid">
-            <span class="navbar-brand text-body-tertiary" href="/docs/">
-                <a href="/" class="text-white text-decoration-none"><i class="bi bi-bank me-1"></i> Chipledger</a> / <a href="/docs/"
-                    class="text-white text-decoration-none">Documentation</a>
+            <span class="navbar-brand text-body-tertiary">
+                <a href="/" class="text-white text-decoration-none"><i class="bi bi-bank me-1"></i> Chipledger</a> / <a href="/docs"
+                    class="text-white text-decoration-none">Docs</a>
             </span>
+             <a class="navbar-toggler bg-white text-black btn btn-light p-1 ps-2 pe-2" type="button" href="/">
+                <i class="bi bi-arrow-left-short text-secondary"></i>
+            </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" style="color:#fff;" aria-current="page"

@@ -1,0 +1,169 @@
+<script>
+    document.title = "File Structure - Chipledger Docs";
+</script>
+<main id="main">
+    <h2 class="mt-5" id="about-this-project">File Structure</h2>
+    <p>
+        The design of Chipledgers code is meant to be clean and understandable. Here is how it is layed out.
+    </p>
+    <h4 id="table-of-contents">
+        Table of Contents
+    </h4>
+    <p>
+    <ol>
+        <li>
+            <a href="#overview">Overview</a>
+        </li>
+        <li>
+            <a href="#root-dir">Root Directory</a>
+        </li>
+        <li>
+            <a href="#lib-dir">Lib Directory</a>
+            <ol>
+                <li><a href="#api">API</a></li>
+                <li><a href="#js">JS</a></li>
+                <li><a href="#static">Static</a></li>
+            </ol>
+        </li>
+        <li>
+            <a href="#database">Database</a>
+        </li>
+    </ol>
+    </p>
+    <h4 id="overview">
+        Overview
+    </h4>
+    <p>
+        Here are most of the directories in the Chipledger source code.
+    </p>
+    <div class="table-responsive">
+        <table class="table border table-striped">
+            <thead>
+                <td>Directory</td>
+                <td>Definition</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>/database/</td>
+                    <td>Holds the SQLite database file.</td>
+                </tr>
+                <tr>
+                    <td>/lib/</td>
+                    <td>Holds a majority of the code.</td>
+                </tr>
+                <tr>
+                    <td>/lib/bootstrap/</td>
+                    <td>Bootstrap source code.</td>
+                </tr>
+                <tr>
+                    <td>/lib/bootswatch-5/</td>
+                    <td>Customized version of Bootstrap from Bootswatch.</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/</td>
+                    <td>Chipledger's source code.</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/api/</td>
+                    <td>Chipledger's API source code.</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/css/</td>
+                    <td>Chipledgers custom CSS. Only Minor tweaks in here.</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/fonts/</td>
+                    <td>Fonts used by Bootswatch. I dont like using google fonts so they are here locally.</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/img/</td>
+                    <td>Images and Logos used in Chipledger</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/js/</td>
+                    <td>Where all of the JS is stored.</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/php/</td>
+                    <td>Occasional PHP scripts that are needed. (NOT THE API)</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/static/</td>
+                    <td>Where all static content is stored.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        The goal of this is simple: all code behind this project are put in subdirectories inside of the <code>/lib/</code> folder, all with the name of the project they originated from.
+        All of bootstrap is in <code>/lib/bootstrap/</code>, likewise with <code>/lib/chipledger/</code>.
+    </p>
+    <h4 id="root-dir">
+        Root Directory
+    </h4>
+    <p>
+        The root directory is where the webserver is started.
+    </p>
+    <p>
+        <code>.htaccess</code> handles the stage #1 routing. Sends all traffic to <code>index.php</code>
+    </p>
+    <p>
+        <code>index.php</code> decides if it is for static content or the actual app.
+        If it is the app, it then again routes all traffic to <code>app.php</code>.
+    </p>
+    <p>
+        <code>app.php</code> has an application skeleton, and chooses + includes the javascript for the user.
+        It is determined by if the user is logged in.
+    </p>
+    <h4 id="lib-dir">
+        Lib Directory
+    </h4>
+    <p>
+        As explained earlier, the lib directory stores different parts of the project.
+        Each component is compartmentalized into its own folder.
+    </p>
+    <h5 id="api">API</h5>
+    <p>
+        The API folder contains all endpoints.
+        These are routed to from the <code>/index.php</code> file.
+    </p>
+    <p>
+        Feel free to read more about the <a href="/docs/api">API Documentation</a>.
+    </p>
+    <h5 id="js">JS</h5>
+    <p>
+        This folder contains all the frontend JS used by Chipledger.
+    </p>
+    <p>
+        Feel free to read more about the <a href="/docs/javascript-and-rendering">Javascript and Rendering</a>.
+    </p>
+    <h5 id="static">Static</h5>
+    <p>
+        The static directory has all the content not on the main site.
+        This includes the docs, blog, and donate screen.
+    </p>
+    <p>
+        These all function differently than the original site.
+        Each HTML file is just the main content, included between the <code>top.php</code> and <code>bottom.php</code> files.
+    </p>
+    <p>
+        They also all contain a <code>404.html</code>, which is displayed if a user navigates further into the url.
+        Say the user goes to <code>/donate/test</code>, it would then show the <code>404.html</code>.
+    </p>
+    <p>
+        All routing (and construction) to these pages is done withing <code>/index.php</code>.
+    </p>
+    <h4 id="database">Database</h4>
+    <p>
+        The <code>/database/</code> folder only contains 2 files: <code>.htaccess</code> and <code>database.db</code>.
+    </p>
+    <p>
+        <code>.htaccess</code> prevents all public traffic to the file.
+    </p>
+    <p>
+        <code>database.db</code> is the SQLite database file.
+    </p>
+    <p>
+        Feel free to read more about the <a href="/docs/database">Database</a>.
+    </p>
+</main>
