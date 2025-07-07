@@ -23,6 +23,11 @@ main {
   margin: auto;
 }
 
+.card-header {
+  padding-left: 10px;
+  padding-right: 8px;
+}
+
 main {
   padding-top: 50px!important;
   padding: 20px;
