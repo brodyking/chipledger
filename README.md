@@ -16,6 +16,12 @@ Here are the changes made to the v1.2 Feature Update:<br>
     <li>
         Fixed incorrect icon's on mobile navigation bar.
     </li>
+    <li>
+        You can now add a buyin when also adding a new player. Makes it much faster.
+    </li>
+    <li>
+        Fixed bug when adding buyins where totalBuyins was the amount, not a increment of 1.
+    </li>
 </ol>
 
 ## Requirements
