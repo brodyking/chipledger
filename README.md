@@ -13,6 +13,9 @@ Chipledger is a web app that tracks buyins and cashouts for poker/blackjack home
 Here are the changes made to the v1.2 Feature Update:<br>
 
 <ol>
+    <li>
+        Fixed incorrect icon's on mobile navigation bar.
+    </li>
 </ol>
 
 ## Requirements
