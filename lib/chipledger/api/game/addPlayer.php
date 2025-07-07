@@ -52,9 +52,18 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
         die();
     }
 
+
     array_push($data["players"], filter_input(INPUT_GET, "playername"));
     $data["totalPlayers"] += 1;
-    $data["buyins"][filter_input(INPUT_GET, "playername")] = 0;
+
+    if (isset($_GET["amount"]) && isset($_GET["method"])) {
+        $data["totalBuyins"] += 1;
+        $data["totalPot"] += filter_input(INPUT_GET,"amount");
+        $data["buyins"][filter_input(INPUT_GET,"playername")] = filter_input(INPUT_GET,"amount");
+    } else {
+        $data["buyins"][filter_input(INPUT_GET, "playername")] = 0;
+    }
+
     $data["cashouts"][filter_input(INPUT_GET, "playername")] = 0;
 
     array_push($data["totalHistory"], ["type" => "join", "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> has joined the table!"]);
