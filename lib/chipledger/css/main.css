@@ -39,7 +39,7 @@ main {
   margin-top: 20px;
 }
 
-.onlymobile {
+.onlymobile,.onlymobile-flex {
   display: none;
 }
 
@@ -55,6 +55,9 @@ and (max-width : 795px) {
   }
   .onlymobile {
     display: block;
+  }
+  .onlymobile-flex {
+    display: flex;
   }
   .footer {
     padding-bottom: 30px!important;
