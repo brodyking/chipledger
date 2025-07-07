@@ -62,13 +62,17 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
         echo json_encode(array("error" => true, "errormessage" => "You cannot withdraw more than the pot."));
         die();
     }
+    $amount = filter_input(INPUT_GET,"amount");
+    $amount = (int) filter_var($amount, FILTER_SANITIZE_NUMBER_INT);
+    $data["totalCashouts"] += $amount;
+    $data["totalPot"] -= $amount;
+    $data["cashouts"][filter_input(INPUT_GET, "playername")] += $amount;
 
-    $data["totalCashouts"] += filter_input(INPUT_GET, "amount");
-    $data["totalPot"] -= filter_input(INPUT_GET, "amount");
-    $data["cashouts"][filter_input(INPUT_GET, "playername")] += filter_input(INPUT_GET, "amount");
+    $data["methods"][filter_input(INPUT_GET,"method")."TotalPot"] -= $amount;
+    $data["methods"][filter_input(INPUT_GET,"method")."TotalCashouts"] += 1;
 
-    array_push($data["totalHistory"], ["type" => "cashout", "method" => filter_input(INPUT_GET,"method"), "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> has cashed out for <b>$" . filter_input(INPUT_GET, "amount") . "</b>"]);
-    array_push($data["cashoutsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => filter_input(INPUT_GET, "amount"), "method" => filter_input(INPUT_GET,"method"),]);
+    array_push($data["totalHistory"], ["type" => "cashout", "method" => filter_input(INPUT_GET,"method"), "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> has cashed out for <b>$" . $amount . "</b>"]);
+    array_push($data["cashoutsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => $amount, "method" => filter_input(INPUT_GET,"method"),]);
 
     $data = json_encode($data);
 

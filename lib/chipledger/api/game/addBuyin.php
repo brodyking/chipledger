@@ -60,12 +60,17 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
         die();
     }
 
-    $data["totalBuyins"] += filter_input(INPUT_GET,"amount");
-    $data["totalPot"] += filter_input(INPUT_GET, "amount");
-    $data["buyins"][filter_input(INPUT_GET, "playername")] += filter_input(INPUT_GET, "amount");
+    $amount = filter_input(INPUT_GET,"amount");
+    $amount = (int) filter_var($amount, FILTER_SANITIZE_NUMBER_INT);
+    $data["totalBuyins"] += $amount;
+    $data["totalPot"] += $amount;
+    $data["buyins"][filter_input(INPUT_GET, "playername")] += $amount;
+    $data["methods"][filter_input(INPUT_GET,"method")."TotalPot"] += $amount;
+    $data["methods"][filter_input(INPUT_GET,"method")."TotalBuyins"] += 1;
+    $data["methods"][filter_input(INPUT_GET,"method")."TotalPlayers"] += 1;
 
-    array_push($data["totalHistory"], ["type" => "buyin", "method" => filter_input(INPUT_GET,"method"),"message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> bought in for <b>$" . filter_input(INPUT_GET, "amount") . "</b>"]);
-    array_push($data["buyinsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => filter_input(INPUT_GET, "amount"), "method" => filter_input(INPUT_GET,"method"),]);
+    array_push($data["totalHistory"], ["type" => "buyin", "method" => filter_input(INPUT_GET,"method"),"message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> bought in for <b>$" . $amount . "</b>"]);
+    array_push($data["buyinsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => $amount, "method" => filter_input(INPUT_GET,"method"),]);
 
     $data = json_encode($data);
 
