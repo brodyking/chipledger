@@ -57,7 +57,7 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
     $data["totalPlayers"] += 1;
 
     if (isset($_GET["amount"]) && isset($_GET["method"])) {
-        $data["totalBuyins"] += 1;
+        $data["totalBuyins"] += filter_input(INPUT_GET,"amount");
         $data["totalPot"] += filter_input(INPUT_GET,"amount");
         $data["buyins"][filter_input(INPUT_GET,"playername")] = filter_input(INPUT_GET,"amount");
     } else {
