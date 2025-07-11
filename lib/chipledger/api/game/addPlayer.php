@@ -60,7 +60,6 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
 
     if (isset($_GET["amount"]) && isset($_GET["method"])) {
         $amount = filter_input(INPUT_GET,"amount");
-        $amount = (int) filter_var($amount, FILTER_SANITIZE_NUMBER_INT);
         $data["totalBuyins"] += $amount;
         $data["totalPot"] += $amount;
         $data["buyins"][filter_input(INPUT_GET,"playername")] = $amount;
