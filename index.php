@@ -33,7 +33,9 @@ $apiRoutes = [
     "/api/game/rename" => "/lib/chipledger/api/game/rename.php",
     "/api/game/addPlayer" => "/lib/chipledger/api/game/addPlayer.php",
     "/api/game/addBuyin" => "/lib/chipledger/api/game/addBuyin.php",
+    "/api/game/editBuyin" => "/lib/chipledger/api/game/editBuyin.php",
     "/api/game/addCashout" => "/lib/chipledger/api/game/addCashout.php",
+    "/api/game/editCashout" => "/lib/chipledger/api/game/editCashout.php",
     "/api/game/get" => "/lib/chipledger/api/game/get.php",
 
     // User API calls
