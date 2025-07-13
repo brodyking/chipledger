@@ -69,7 +69,7 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
     $data["cashouts"][filter_input(INPUT_GET, "playername")] += $amount;
 
     $data["methods"][filter_input(INPUT_GET,"method")."TotalPot"] -= $amount;
-    $data["methods"][filter_input(INPUT_GET,"method")."TotalCashouts"] += 1;
+    $data["methods"][filter_input(INPUT_GET,"method")."TotalCashouts"] += $amount;
 
     array_push($data["totalHistory"], ["type" => "cashout", "method" => filter_input(INPUT_GET,"method"), "message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> has cashed out for <b>$" . $amount . "</b>"]);
     array_push($data["cashoutsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => $amount, "method" => filter_input(INPUT_GET,"method"),]);
