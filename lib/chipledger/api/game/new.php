@@ -56,27 +56,22 @@ if (isset($_GET["name"]) && isset($_COOKIE["username"]) && isset($_COOKIE["sessi
             "cashTotalPot" => 0,
             "cashTotalBuyins" => 0,
             "cashTotalCashouts" => 0,
-            "cashTotalPlayers" => 0,
             // Venmo totals
             "venmoTotalPot" => 0,
             "venmoTotalBuyins" => 0,
             "venmoTotalCashouts" => 0,
-            "venmoTotalPlayers" => 0,
             // Zelle totals
             "zelleTotalPot" => 0,
             "zelleTotalBuyins" => 0,
             "zelleTotalCashouts" => 0,
-            "zelleTotalPlayers" => 0,
             // Cashapp totals
             "cashappTotalPot" => 0,
             "cashappTotalBuyins" => 0,
             "cashappTotalCashouts" => 0,
-            "cashappTotalPlayers" => 0,
             // Other totals
             "otherTotalPot" => 0,
             "otherTotalBuyins" => 0,
             "otherTotalCashouts" => 0,
-            "otherTotalPlayers" => 0,
         ];
         $data = json_encode($data);
         $statement->bindValue(":dataInput", $data, PDO::PARAM_STR);
