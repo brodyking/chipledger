@@ -74,6 +74,16 @@ main {
   backdrop-filter: none!important;
 }
 
+.policylinks {
+  opacity: 50%;
+  text-decoration: none;
+}
+
+.policylinks:hover {
+  opacity: 100%;
+  text-decoration: underline;
+}
+
 /* Smartphones ----------- */
 @media only screen 
 and (max-width : 795px) {
