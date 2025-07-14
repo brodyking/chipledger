@@ -22,7 +22,7 @@
 
     <!--- Title --->
     <title>
-        Chipledger - Donate  
+        Chipledger Donate  
     </title>
 
 
