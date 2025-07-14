@@ -25,6 +25,7 @@ $apiRoutes = [
 
     // Content API calls
     "/api/data/releaseNotes" => "/lib/chipledger/api/data/releaseNotes.php",
+    "/api/data/tutorial" => "/lib/chipledger/api/data/tutorial.php",
 
     // Game API calls
     "/api/game/new" => "/lib/chipledger/api/game/new.php",
@@ -53,8 +54,6 @@ $docRoutes = [
     "/docs/about-this-project" => "/lib/chipledger/static/docs/about-this-project.html",
     "/docs/api" => "/lib/chipledger/static/docs/api.html",
     "/docs/javascript-and-rendering" => "/lib/chipledger/static/docs/javascript-and-rendering.html",
-    "/docs/tos" => "/lib/chipledger/static/docs/tos.html",
-    "/docs/cookies" => "/lib/chipledger/static/docs/cookies.html",
     "/docs/database" => "/lib/chipledger/static/docs/database.html",
     "/docs/file-structure" => "/lib/chipledger/static/docs/file-structure.html"
 ];
@@ -72,7 +71,14 @@ $donateRoutes = [
     "/donate" => "/lib/chipledger/static/donate/index.html"
 ];
 
+// Routes for Policy 
+$policyRoutes = [
+    "/policy" => "/lib/chipledger/static/policy/index.html",
 
+    // Articles
+    "/policy/tos" => "/lib/chipledger/static/policy/tos.html",
+    "/policy/cookies" => "/lib/chipledger/static/policy/cookies.html",
+];
 
 // Removes extra "/" at the end of the request string if present.
 if (strlen($request) > 1 && substr($request, -1) == "/") {
@@ -92,6 +98,8 @@ if (substr($request, 0, 5) == "/docs") {
     $route = "blog";
 } else if (substr($request, 0, 4) == "/api") {
     $route = "api";
+}  else if (substr($request, 0, 7) == "/policy") {
+    $route = "policy";
 }
 
 switch ($route) {
@@ -105,6 +113,17 @@ switch ($route) {
             include __DIR__ . "/lib/chipledger/static/docs/404.html";
         }
         require __DIR__ . "/lib/chipledger/static/docs/bottom.php"; // Bottom of page
+        break;
+    case "policy":
+        // Documentation route
+        require __DIR__ . "/lib/chipledger/static/policy/top.php"; // Top of page
+        // Page content
+        if (isset($policyRoutes[$request])) {
+            include __DIR__ . $policyRoutes[$request];
+        } else {
+            include __DIR__ . "/lib/chipledger/static/policy/404.html";
+        }
+        require __DIR__ . "/lib/chipledger/static/policy/bottom.php"; // Bottom of page
         break;
     case "donate":
         // Donation route
