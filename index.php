@@ -63,7 +63,8 @@ $blogRoutes = [
     "/blog" => "/lib/chipledger/static/blog/index.html",
 
     // Posts
-    "/blog/2025/07/02/v1.1-patches-and-more" => "/lib/chipledger/static/blog/2025/07/02/v1.1-patches-and-more.html"
+    "/blog/2025/07/02/v1.1-patches-and-more" => "/lib/chipledger/static/blog/2025/07/02/v1.1-patches-and-more.html",
+    "/blog/2025/07/14/v1.2-feature-update" => "/lib/chipledger/static/blog/2025/07/14/v1.2-feature-update.html",
 ];
 
 // Routes for Donate
