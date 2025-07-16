@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["name"]) && isset($_GET["playername"]) && isset($_GET["amount"]) && isset($_GET["method"])) {
+if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["name"]) && isset($_GET["playername"]) && isset($_GET["amount"]) && isset($_GET["method"]) && isset($_GET["buyinId"])) {
 
     include_once "lib/chipledger/php/isloggedin.php";
 
@@ -60,6 +60,16 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
         die();
     }
 
+    $oldAmount = $data["buyinsHistory"][$_GET["buyinId"]]["value"];
+    $oldMethod = $data["buyinsHistory"][$_GET["buyinId"]]["method"];
+
+    // Remove old amounts
+    $data["totalBuyins"] -= $oldAmount;
+    $data["totalPot"] -= $oldAmount;
+    $data["methods"][$oldMethod."TotalPot"] -= $oldAmount;
+    $data["methods"][$oldMethod."TotalBuyins"] -= $oldAmount;
+    $data["buyins"][filter_input(INPUT_GET, "playername")] -= $oldAmount;
+
     $amount = filter_input(INPUT_GET,"amount");
     $data["totalBuyins"] += $amount;
     $data["totalPot"] += $amount;
@@ -67,8 +77,8 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
     $data["methods"][filter_input(INPUT_GET,"method")."TotalPot"] += $amount;
     $data["methods"][filter_input(INPUT_GET,"method")."TotalBuyins"] += $amount;
 
-    array_push($data["totalHistory"], ["type" => "buyin", "method" => filter_input(INPUT_GET,"method"),"message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> bought in for <b>$" . $amount . "</b>"]);
-    array_push($data["buyinsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => $amount, "method" => filter_input(INPUT_GET,"method"),]);
+    array_push($data["totalHistory"], ["type" => "edit", "method" => filter_input(INPUT_GET,"method"),"message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b>'s buyin was changed from <b>$" . $oldAmount . "</b> with <b>".$oldMethod."</b> to <b>$" . $amount . "</b> with <b>".filter_input(INPUT_GET,"method")."</b>"]);
+    $data["buyinsHistory"][$_GET["buyinId"]] = ["name" => filter_input(INPUT_GET, "playername"), "value" => $amount, "method" => filter_input(INPUT_GET,"method")];
 
     $data = json_encode($data);
 

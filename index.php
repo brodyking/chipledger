@@ -25,6 +25,7 @@ $apiRoutes = [
 
     // Content API calls
     "/api/data/releaseNotes" => "/lib/chipledger/api/data/releaseNotes.php",
+    "/api/data/tutorial" => "/lib/chipledger/api/data/tutorial.php",
 
     // Game API calls
     "/api/game/new" => "/lib/chipledger/api/game/new.php",
@@ -33,7 +34,9 @@ $apiRoutes = [
     "/api/game/rename" => "/lib/chipledger/api/game/rename.php",
     "/api/game/addPlayer" => "/lib/chipledger/api/game/addPlayer.php",
     "/api/game/addBuyin" => "/lib/chipledger/api/game/addBuyin.php",
+    "/api/game/editBuyin" => "/lib/chipledger/api/game/editBuyin.php",
     "/api/game/addCashout" => "/lib/chipledger/api/game/addCashout.php",
+    "/api/game/editCashout" => "/lib/chipledger/api/game/editCashout.php",
     "/api/game/get" => "/lib/chipledger/api/game/get.php",
 
     // User API calls
@@ -51,8 +54,6 @@ $docRoutes = [
     "/docs/about-this-project" => "/lib/chipledger/static/docs/about-this-project.html",
     "/docs/api" => "/lib/chipledger/static/docs/api.html",
     "/docs/javascript-and-rendering" => "/lib/chipledger/static/docs/javascript-and-rendering.html",
-    "/docs/tos" => "/lib/chipledger/static/docs/tos.html",
-    "/docs/cookies" => "/lib/chipledger/static/docs/cookies.html",
     "/docs/database" => "/lib/chipledger/static/docs/database.html",
     "/docs/file-structure" => "/lib/chipledger/static/docs/file-structure.html"
 ];
@@ -62,7 +63,8 @@ $blogRoutes = [
     "/blog" => "/lib/chipledger/static/blog/index.html",
 
     // Posts
-    "/blog/2025/07/02/v1.1-patches-and-more" => "/lib/chipledger/static/blog/2025/07/02/v1.1-patches-and-more.html"
+    "/blog/2025/07/02/v1.1-patches-and-more" => "/lib/chipledger/static/blog/2025/07/02/v1.1-patches-and-more.html",
+    "/blog/2025/07/14/v1.2-feature-update" => "/lib/chipledger/static/blog/2025/07/14/v1.2-feature-update.html",
 ];
 
 // Routes for Donate
@@ -70,7 +72,14 @@ $donateRoutes = [
     "/donate" => "/lib/chipledger/static/donate/index.html"
 ];
 
+// Routes for Policy 
+$policyRoutes = [
+    "/policy" => "/lib/chipledger/static/policy/index.html",
 
+    // Articles
+    "/policy/tos" => "/lib/chipledger/static/policy/tos.html",
+    "/policy/cookies" => "/lib/chipledger/static/policy/cookies.html",
+];
 
 // Removes extra "/" at the end of the request string if present.
 if (strlen($request) > 1 && substr($request, -1) == "/") {
@@ -90,6 +99,10 @@ if (substr($request, 0, 5) == "/docs") {
     $route = "blog";
 } else if (substr($request, 0, 4) == "/api") {
     $route = "api";
+}  else if (substr($request, 0, 7) == "/policy") {
+    $route = "policy";
+} else if (substr($request,0,4) == "/sys") {
+    $route = "sys";
 }
 
 switch ($route) {
@@ -103,6 +116,17 @@ switch ($route) {
             include __DIR__ . "/lib/chipledger/static/docs/404.html";
         }
         require __DIR__ . "/lib/chipledger/static/docs/bottom.php"; // Bottom of page
+        break;
+    case "policy":
+        // Documentation route
+        require __DIR__ . "/lib/chipledger/static/policy/top.php"; // Top of page
+        // Page content
+        if (isset($policyRoutes[$request])) {
+            include __DIR__ . $policyRoutes[$request];
+        } else {
+            include __DIR__ . "/lib/chipledger/static/policy/404.html";
+        }
+        require __DIR__ . "/lib/chipledger/static/policy/bottom.php"; // Bottom of page
         break;
     case "donate":
         // Donation route
@@ -135,6 +159,10 @@ switch ($route) {
         } else {
             echo json_encode(array("error" => "invalid request"), JSON_PRETTY_PRINT);
         }
+        break;
+    case "sys":
+        // Page content
+        require __DIR__ . "/lib/chipledger/php/sys.php";
         break;
     default:
         // App

@@ -1,8 +1,6 @@
 <?php
 
-if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["name"]) && isset($_GET["playername"]) && isset($_GET["amount"]) && isset($_GET["method"])) {
-
-    include_once "lib/chipledger/php/isloggedin.php";
+if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["name"]) && isset($_GET["playername"]) && isset($_GET["amount"]) && isset($_GET["method"]) && isset($_GET["cashoutId"])) {
 
     if (!isloggedin($config["database.location"])) {
         echo json_encode(array("error" => true, "errormessage" => "Not Authenticated"));
@@ -14,8 +12,8 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
         die();
     }
 
-    if ($_GET["amount"] <= 0) {
-        echo json_encode(array("error" => true, "errormessage" => "You must buy in for a positive amount."));
+    if ($_GET["amount"] < 0) {
+        echo json_encode(array("error" => true, "errormessage" => "You must cash out for a positive amount."));
         die();
     }
 
@@ -60,15 +58,34 @@ if (isset($_COOKIE["username"]) && isset($_COOKIE["session"]) && isset($_GET["na
         die();
     }
 
-    $amount = filter_input(INPUT_GET,"amount");
-    $data["totalBuyins"] += $amount;
-    $data["totalPot"] += $amount;
-    $data["buyins"][filter_input(INPUT_GET, "playername")] += $amount;
-    $data["methods"][filter_input(INPUT_GET,"method")."TotalPot"] += $amount;
-    $data["methods"][filter_input(INPUT_GET,"method")."TotalBuyins"] += $amount;
+    
+    $oldAmount = $data["cashoutsHistory"][$_GET["cashoutId"]]["value"];
+    $oldMethod = $data["cashoutsHistory"][$_GET["cashoutId"]]["method"];
 
-    array_push($data["totalHistory"], ["type" => "buyin", "method" => filter_input(INPUT_GET,"method"),"message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b> bought in for <b>$" . $amount . "</b>"]);
-    array_push($data["buyinsHistory"], ["name" => filter_input(INPUT_GET, "playername"), "value" => $amount, "method" => filter_input(INPUT_GET,"method"),]);
+
+    if (filter_input(INPUT_GET, "amount") > $data["totalPot"] + $oldAmount) {
+        echo json_encode(array("error" => true, "errormessage" => "You cannot withdraw more than the pot."));
+        die();
+    }
+
+    // Remove old amounts
+    $data["totalCashouts"] -= $oldAmount;
+    $data["totalPot"] += $oldAmount;
+    $data["methods"][$oldMethod."TotalPot"] += $oldAmount;
+    $data["methods"][$oldMethod."TotalCashouts"] -= $oldAmount;
+    $data["cashouts"][filter_input(INPUT_GET, "playername")] -= $oldAmount;
+
+    $amount = filter_input(INPUT_GET,"amount");
+    $amount = (int) filter_var($amount, FILTER_SANITIZE_NUMBER_INT);
+    $data["totalCashouts"] += $amount;
+    $data["totalPot"] -= $amount;
+    $data["cashouts"][filter_input(INPUT_GET, "playername")] += $amount;
+
+    $data["methods"][filter_input(INPUT_GET,"method")."TotalPot"] -= $amount;
+    $data["methods"][filter_input(INPUT_GET,"method")."TotalCashouts"] += 1;
+
+    array_push($data["totalHistory"], ["type" => "edit", "method" => filter_input(INPUT_GET,"method"),"message" => "<b>" . filter_input(INPUT_GET, "playername") . "</b>'s cashout was changed from <b>$" . $oldAmount . "</b> with <b>".$oldMethod."</b> to <b>$" . $amount . "</b> with <b>".filter_input(INPUT_GET,"method")."</b>"]);
+    $data["cashoutsHistory"][$_GET["cashoutId"]] = ["name" => filter_input(INPUT_GET, "playername"), "value" => $amount, "method" => filter_input(INPUT_GET,"method")];
 
     $data = json_encode($data);
 

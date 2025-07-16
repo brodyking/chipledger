@@ -76,9 +76,9 @@
 
     if (isloggedin($config["database.location"])) {
         echo "<script>const username = '{$username}';const siteName = '{$config["site.name"]}';const d = new Date();const dateString = d.getDay() + '-' + d.getMonth() + '-' + d.getFullYear();</script>";
-        echo "<script src='lib/chipledger/js/view.js'></script><script src='lib/chipledger/js/components.js'></script><script src='lib/chipledger/js/pages.js'></script>";
+        echo "<script src='/lib/chipledger/js/view.js'></script><script src='/lib/chipledger/js/components.js'></script><script src='/lib/chipledger/js/pages.js'></script>";
     } else {
-        echo "<script src='lib/chipledger/js/splash.js'></script>";
+        echo "<script src='/lib/chipledger/js/splash.js'></script>";
     }
     ?>
 

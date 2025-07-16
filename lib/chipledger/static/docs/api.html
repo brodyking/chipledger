@@ -20,7 +20,7 @@
             <a href="#authentication">Authentication</a>
         </li>
         <li>
-            <a href="#content">Content</a>
+            <a href="#data">Data (Content)</a>
         </li>
         <li>
             <a href="#game">Game</a>
@@ -56,12 +56,12 @@
                     <td>Clears session ids.</td>
                 </tr>
                 <tr>
-                    <td>/api/content/releaseNotes</td>
+                    <td>/api/data/releaseNotes</td>
                     <td>Returns HTML inside of JSON with all the Release Notes.</td>
                 </tr>
                 <tr>
-                    <td>/api/content/donate</td>
-                    <td>Returns HTML inside of JSON with the donation page.</td>
+                    <td>/api/data/tutorial</td>
+                    <td>Returns HTML inside of JSON with the tutorial page.</td>
                 </tr>
                 <tr>
                     <td>/api/game/new</td>
@@ -169,8 +169,8 @@
         It headers the user to the homepage when completed.
         This is because not logged in users and authenticated users required different js scripts.
     </p>
-    <h4 id="content">
-        Content
+    <h4 id="data">
+       Data (Content)
     </h4>
     <p>
         These return content to fill pages. Donation has been removed. 
@@ -188,7 +188,16 @@
             </thead>
             <tr>
                 <td>Release Notes</td>
-                <td>/api/content/releaseNotes</td>
+                <td>/api/data/releaseNotes</td>
+                <td><i class="bi bi-x"></i></td>
+                <td><i class="bi bi-x"></i></td>
+                <td><i class="bi bi-x"></i></td>
+                <td>JSON</td>
+                <td><code>data</code></td>
+            </tr>
+            <tr>
+                <td>Tutorial</td>
+                <td>/api/data/tutorial</td>
                 <td><i class="bi bi-x"></i></td>
                 <td><i class="bi bi-x"></i></td>
                 <td><i class="bi bi-x"></i></td>
@@ -275,6 +284,24 @@
                 <td>Add Cashout</td>
                 <td>/api/game/addCashout</td>
                 <td><code>name</code>, <code>playername</code>, <code>amount</code>, <code>method</code></td>
+                <td><i class="bi bi-x"></i></td>
+                <td><code>username</code>, <code>session</code></td>
+                <td>JSON</td>
+                <td><code>data</code> or <code>error</code></td>
+            </tr>
+            <tr>
+                <td>Edit Buyin</td>
+                <td>/api/game/editBuyin</td>
+                <td><code>name</code>, <code>playername</code>, <code>amount</code>, <code>method</code>, <code>buyinId</code></td>
+                <td><i class="bi bi-x"></i></td>
+                <td><code>username</code>, <code>session</code></td>
+                <td>JSON</td>
+                <td><code>data</code> or <code>error</code></td>
+            </tr>
+            <tr>
+                <td>Edit Cashout</td>
+                <td>/api/game/editCashout</td>
+                <td><code>name</code>, <code>playername</code>, <code>amount</code>, <code>method</code>, <code>cashoutId</code></td>
                 <td><i class="bi bi-x"></i></td>
                 <td><code>username</code>, <code>session</code></td>
                 <td>JSON</td>

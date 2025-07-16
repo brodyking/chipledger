@@ -252,6 +252,20 @@
                     <td>Sets the page to <code>/settings</code>, fills DOM with settings options, and contains more
                         special functions inside.</td>
                 </tr>
+                <tr>
+                    <td>Tutorial</td>
+                    <td><code>tutorial()</code></td>
+                    <td><i class="bi bi-check text-success"></i></td>
+                    <td>Sets the page to <code>/tutorial</code>, and fills DOM with content from the data api.</td>
+                </tr>
+                <tr>
+                    <td>Find Page</td>
+                    <td><code>findPage(pathname)</code></td>
+                    <td><i class="bi bi-x text-danger"></i></td>
+                    <td>Finds the page in a switch statement, and runs the pages function. It is ran once on the initial
+                        pageload with <code>document.location.pathname.toLowerCase()</code> as the param, but is then
+                        ran again when <code>popstate</code> is triggered.</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -339,7 +353,34 @@
                     <td>Add Cashout</td>
                     <td><code>addCashout()</code></td>
                     <td><i class="bi bi-check text-success"></i></td>
-                    <td>Sends a API call to rename the game, sets the new name as a url param, and calls upon <code>view()</code> again.</td>
+                    <td>Sends a API call to rename the game, sets the new name as a url param, and calls upon
+                        <code>view()</code> again.</td>
+                </tr>
+                <tr>
+                    <td>Edit Buyin</td>
+                    <td><code>editBuyin()</code></td>
+                    <td><i class="bi bi-check text-success"></i></td>
+                    <td>Sends a API call to edit a buyin value, then rehydrates.</td>
+                </tr>
+                <tr>
+                    <td>Edit Cashout</td>
+                    <td><code>editCashout()</code></td>
+                    <td><i class="bi bi-check text-success"></i></td>
+                    <td>Sends a API call to edit a cashout value, then rehydrates.</td>
+                </tr>
+                <tr>
+                    <td>Edit Buyin Render</td>
+                    <td><code>editBuyinRender(...)</code></td>
+                    <td><i class="bi bi-x text-danger"></i></td>
+                    <td>Fills in the form with all the data from the selected buyin to edit. Parameters are, in order,
+                        <code>name, value, method, buyinId</code></td>
+                </tr>
+                <tr>
+                    <td>Edit Cashout Render</td>
+                    <td><code>editCashoutRender(...)</code></td>
+                    <td><i class="bi bi-x text-danger"></i></td>
+                    <td>Fills in the form with all the data from the selected cashout to edit. Parameters are, in order,
+                        <code>name, value, method, cashoutId</code></td>
                 </tr>
                 <tr>
                     <td>Rename Game</td>
@@ -357,6 +398,7 @@
         </table>
     </div>
     <p>
-        Some parts of this may be repeated in <a herf="#pages">pages.js</a>, but this code was mostly ported from an older build and rewriting isn't worth it.
+        Some parts of this may be repeated in <a herf="#pages">pages.js</a>, but this code was mostly ported from an
+        older build and rewriting isn't worth it.
     </p>
 </main>

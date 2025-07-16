@@ -22,7 +22,7 @@
 
     <!--- Title --->
     <title>
-        Chipledger Donate  
+        Chipledger Policy 
     </title>
 
 
@@ -52,10 +52,10 @@
     <nav class="navbar fixed-top navbar-expand-lg p-0 bg-primary" id="navbar">
         <div class="container-fluid">
             <span class="navbar-brand text-body-tertiary">
-                <a href="/" class="text-white text-decoration-none"><i class="bi bi-bank me-1"></i> Chipledger</a> / <a href="/donate"
-                    class="text-white text-decoration-none">Donate</a>
+                <a href="/" class="text-white text-decoration-none"><i class="bi bi-bank me-1"></i> Chipledger</a> / <a href="/policy"
+                    class="text-white text-decoration-none">Policy</a>
             </span>
-            <a class="navbar-toggler bg-white text-black btn btn-light p-1 ps-2 pe-2" type="button" href="/">
+             <a class="navbar-toggler bg-white text-black btn btn-light p-1 ps-2 pe-2" type="button" href="/">
                 <i class="bi bi-arrow-left-short text-secondary"></i>
             </a>
             <div class="collapse navbar-collapse">
