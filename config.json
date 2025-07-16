@@ -3,5 +3,8 @@
     "site.url": "localhost",
     "site.version": "v1.2",
 
-    "database.location": null 
+    "database.location": null,
+
+    "sys.enabled": true,
+    "sys.password": "123"
 }

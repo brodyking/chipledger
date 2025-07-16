@@ -101,6 +101,8 @@ if (substr($request, 0, 5) == "/docs") {
     $route = "api";
 }  else if (substr($request, 0, 7) == "/policy") {
     $route = "policy";
+} else if (substr($request,0,4) == "/sys") {
+    $route = "sys";
 }
 
 switch ($route) {
@@ -157,6 +159,10 @@ switch ($route) {
         } else {
             echo json_encode(array("error" => "invalid request"), JSON_PRETTY_PRINT);
         }
+        break;
+    case "sys":
+        // Page content
+        require __DIR__ . "/lib/chipledger/php/sys.php";
         break;
     default:
         // App
