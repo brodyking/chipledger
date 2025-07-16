@@ -84,6 +84,9 @@ Here are the changes made to the v1.2 Feature Update:<br>
     <li>
         Back buttons on browser now function correctly.
     </li>
+    <li>
+        New Admin Panel
+    </li>
 </ol>
 
 ## Requirements
