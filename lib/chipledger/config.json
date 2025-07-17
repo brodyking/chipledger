@@ -6,5 +6,6 @@
     "database.location": null,
 
     "sys.enabled": true,
+    "sys.username": "admin",
     "sys.password": "123"
 }
