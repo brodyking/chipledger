@@ -100,7 +100,7 @@ if (isset($routes[$request])) {
             require $dir . "/lib/chipledger/{$request}.php";
             break;
         case "sys":
-            require $dir . "/lib/chipledger/sys/php/sys.php";
+            require $dir . "/lib/chipledger/sys/sys.php";
             break;
         default:
             // Documentation route
