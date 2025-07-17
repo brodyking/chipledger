@@ -114,5 +114,5 @@ if (isset($routes[$request])) {
             break;
     }
 } else {
-    require $dir . "/lib/chipledger/app/php/view.php";
+    require $dir . "/lib/chipledger/app/php/view.php"; // Actual JS App (splash + pages / view)
 }
