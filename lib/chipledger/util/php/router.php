@@ -104,13 +104,13 @@ if (isset($routes[$request])) {
             break;
         default:
             // Documentation route
-            require "{$dir}/lib/chipledger/static/html/{$type}/top.php"; // Top of page
+            require "{$dir}/lib/chipledger/static/html/{$type}/top.html"; // Top of page
             if ($includeType == "html") {
                 include $dir . "/lib/chipledger/static/html{$request}.html";
             } else {
                 include $dir . "/lib/chipledger/static/html{$request}/index.html";
             }
-            require $dir . "/lib/chipledger/static/html/{$type}/bottom.php"; // Bottom of page
+            require $dir . "/lib/chipledger/static/php/bottom.php"; // Bottom of page
             break;
     }
 } else {
