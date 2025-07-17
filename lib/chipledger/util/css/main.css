@@ -1,0 +1,108 @@
+@media (min-width: 576px) {
+  .h-sm-100 {
+    height: 100%;
+  }
+}
+
+@font-face {
+  font-family: SourceSans3;
+  src: url("/lib/chipledger/util/fonts/SourceSans3-VariableFont_wght.ttf");
+}
+
+thead {
+  font-weight: bold;
+}
+
+body {
+  font-family: SourceSans3;
+}
+
+nav > .container-fluid,
+main {
+  max-width: 800px;
+  margin: auto;
+}
+
+.card-header {
+  padding-left: 10px;
+  padding-right: 8px;
+}
+
+main {
+  padding-top: 50px!important;
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+.nav-link:hover,
+.navbar-brand:hover,
+.dropdown-item:hover {
+  cursor: pointer !important;
+}
+
+#errorMessage, #jserrors {
+  margin-top: 20px;
+}
+
+.onlymobile,.onlymobile-flex {
+  display: none;
+}
+
+.btn {
+  text-transform: none!important;
+}
+
+.mobile-game-nav-light,.mobile-game-nav-dark {
+  bottom:60px!important;
+}
+.mobile-game-nav-light,.mobile-global-nav-light {
+  background-color: rgb(248, 248, 248, 0.5)!important;
+  backdrop-filter: blur(10px);
+}
+.mobile-game-nav-dark,.mobile-global-nav-dark {
+  background-color: rgb(43, 43, 43, 0.5)!important;
+  backdrop-filter: blur(10px);
+}
+
+.mobile-global-nav-dark > .modal-header {
+  background-color: rgb(34, 34, 34)!important;
+    backdrop-filter: none!important;
+}
+
+.mobile-global-nav-light > .modal-header {
+  background-color: rgb(225 225, 225)!important;
+  backdrop-filter: none!important;
+}
+
+.policylinks {
+  opacity: 50%;
+  text-decoration: none;
+}
+
+.policylinks:hover {
+  opacity: 100%;
+  text-decoration: underline;
+}
+
+/* Smartphones ----------- */
+@media only screen 
+and (max-width : 795px) {
+  .nomobile {
+    display: none;
+  }
+  .onlymobile {
+    display: block;
+  }
+  .onlymobile-flex {
+    display: flex;
+  }
+  .footer {
+    padding-bottom: 30px!important;
+    padding-left: 30px!important;
+    padding-right: 30px!important;
+  }
+  #main {
+    margin-bottom: 160px!important;
+    padding: 10px;
+  }
+}
