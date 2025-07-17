@@ -2,8 +2,6 @@
 
 if (isset($_COOKIE["username"]) && isset($_COOKIE["session"])) {
     
-    include_once "lib/chipledger/php/isloggedin.php";
-
     if (!isloggedin($config["database.location"])) {
         echo json_encode(array("error" => true, "errormessage" => "Not Authenticated"));
         die();
