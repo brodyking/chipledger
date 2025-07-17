@@ -10,84 +10,8 @@ Chipledger is a web app that tracks buyins and cashouts for poker/blackjack home
 
 ## v1.2 Release Notes
 
-Here are the changes made to the v1.2 Feature Update:<br>
+Here are the changes made to the v1.3 Feature Update:<br>
 
-<ol>
-    <li>
-        Fixed incorrect icon's on mobile navigation bar.
-    </li>
-    <li>
-        You can now add an initial buyin while adding a new player. Makes it much faster.
-    </li>
-    <li>
-        More advanced tracking of different payment methods.
-        <ul>
-            <li>
-                You can track total buyins and cashouts + pot size per payment method.
-            </li>
-        </ul>
-    </li>
-    <li>
-        Lots of UI Improvements
-        <ul>
-            <li>
-                New buttons that auto-adjust to theme.
-            </li>
-            <li>
-                View screen has been overhaulled
-                <ol>
-                    <li>
-                        New floating navigation at the bottom that contains links for buyins, cashouts, and adding new players.
-                    </li>
-                    <li>
-                        Tables have lost their padding inside of cards, making for some much needed room.
-                    </li>
-                    <li>
-                        History has been stylized much more.
-                    </li>
-                    <li>
-                        Game name and settings (rename and delete) have been moved to a horizontal bar at the top of the page.
-                    </li>
-                </ol>
-            </li>
-            <li>
-                Cards on almost all screens have a "collapse" feature.
-            </li>
-            <li>
-                Navigation has been improved upon heavily
-                <ol>
-                    <li>
-                        More uniform between all areas of the site.
-                    </li>
-                    <li>
-                        Improved dropdown, replacing the popup, for mobile navigation.
-                    </li>
-                    <li>
-                        Mobile now retains SPA, instead of href (thanks safari, you suck)
-                    </li>
-                </ol>
-            </li>
-            <li>
-                Logo has been made simpler. No more gradient.
-            </li>
-        </ul>
-    </li>
-    <li>
-        New <code>/policy</code> area of site. All Info related to Policy has been removed from <code>/docs</code>
-    </li>
-    <li>
-        Ability to edit values. You can <i>finally</i> edit buyins and cashouts.
-    </li>
-    <li>
-        New tutorial page. It will be expanded upon later, for now it just contains install instructions for iOS.
-    </li>
-    <li>
-        Back buttons on browser now function correctly.
-    </li>
-    <li>
-        New Admin Panel
-    </li>
-</ol>
 
 ## Requirements
 This project uses/requires:
