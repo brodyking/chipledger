@@ -15,16 +15,16 @@
     <link href="/lib/bootswatch-5/dist/lumen/bootstrap.min.css" rel="stylesheet">
     <link href="/lib/bootstrap/icons/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="/lib/chipledger/util/css/main.css" rel="stylesheet">
-    <link href="/lib/chipledger/pages/css/pages.css" rel="stylesheet">
+    <link href="/lib/chipledger/static/css/static.css" rel="stylesheet">
 
     <!--- Title --->
     <title>
-        Chipledger Policy
+        Chipledger Docs
     </title>
 
     <!--- Meta Tags --->
-    <meta name="title" content="Chipledger Policy">
-    <meta name="description" content="Chipledger's Policies. All legal information is stored here.">
+    <meta name="title" content="Chipledger Docs">
+    <meta name="description" content="Chipledger's Docs. Here you can find useful information on this opensource software, and how to develop for it.">
     <meta name="keywords" content="">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
@@ -50,8 +50,8 @@
     <nav class="navbar fixed-top navbar-expand-lg p-0 bg-primary" id="navbar">
         <div class="container-fluid">
             <span class="navbar-brand text-body-tertiary">
-                <a href="/" class="text-white text-decoration-none"><i class="bi bi-bank me-1"></i> Chipledger</a> / <a href="/policy"
-                    class="text-white text-decoration-none">Policy</a>
+                <a href="/" class="text-white text-decoration-none"><i class="bi bi-bank me-1"></i> Chipledger</a> / <a href="/docs"
+                    class="text-white text-decoration-none">Docs</a>
             </span>
             <a class="navbar-toggler bg-white text-black btn btn-light p-1 ps-2 pe-2" type="button" href="/">
                 <i class="bi bi-arrow-left-short text-secondary"></i>
