@@ -15,7 +15,7 @@
     <link href="/lib/bootswatch-5/dist/lumen/bootstrap.min.css" rel="stylesheet">
     <link href="/lib/bootstrap/icons/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="/lib/chipledger/util/css/main.css" rel="stylesheet">
-    <link href="/lib/chipledger/static/css/static.css" rel="stylesheet">
+    <link href="/lib/chipledger/pages/css/pages.css" rel="stylesheet">
     
     <!--- Title --->
     <title>
