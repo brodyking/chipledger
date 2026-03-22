@@ -46,25 +46,26 @@
                 <a href="/" class="text-white text-decoration-none"><i class="bi bi-bank me-1"></i> Chipledger</a> / <a href="/sys"
                     class="text-white text-decoration-none">Sys</a>
             </span>
-             <a class="navbar-toggler bg-white text-black btn btn-light p-1 ps-2 pe-2" type="button" href="/">
+            <a class="navbar-toggler bg-white text-black btn btn-light p-1 ps-2 pe-2" type="button" href="/">
                 <i class="bi bi-arrow-left-short text-secondary"></i>
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" style="color:#fff;" aria-current="page"
-                    href="https://github.com/brodyking/chipledger/"><i
-                    class="align-middle bi bi-github me-1"></i></a></li>
+                            href="https://github.com/brodyking/chipledger/"><i
+                                class="align-middle bi bi-github me-1"></i></a></li>
                     <li class="nav-item"><a class="nav-link" style="color:#fff;" aria-current="page"
-                    href="https://benadryl.dev"><i class="align-middle bi bi-capsule me-1"></i></a></li>
+                            href="https://benadryl.dev"><i class="align-middle bi bi-capsule me-1"></i></a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <main id="main">
 
-    <?php
+        <?php
 
-        function showLogin($warning) {
+        function showLogin($warning)
+        {
             echo '<form style="max-width:300px;margin:auto;margin-top:100px;" action="/sys" method="POST">';
             if ($warning == "incorrectpswd") {
                 echo '<div class="alert alert-warning">Incorrect Password</div>';
@@ -85,7 +86,8 @@
             ';
         }
 
-        function showAdmin() {
+        function showAdmin()
+        {
             global $config;
             $users = "";
             $games = "";
@@ -104,7 +106,6 @@
                 foreach ($r as $user) {
                     $users = $users . "<tr><td>{$user["username"]}</td><td>{$user["email"]}</td><td>{$user["joindate"]}</tr>";
                 }
-
             } catch (PDOException $e) {
                 echo $e;
             }
@@ -123,7 +124,6 @@
                 foreach ($r as $game) {
                     $games = $games . "<tr><td>{$game["name"]}</td><td>{$game["username"]}</td><td style='overflow:hidden;'><input type='text' class='form-control' value='{$game["data"]}' readonly></tr>";
                 }
-
             } catch (PDOException $e) {
                 echo $e;
             }
@@ -141,7 +141,7 @@
                         <td>Joined</td>
                     </thead>
                     <tbody>
-                    '.$users.'
+                    ' . $users . '
                     </tbody>
                     </table>
                 </div>
@@ -159,7 +159,7 @@
                             <td>Data</td>
                         </thead>
                         <tbody>
-                            '.$games.'
+                            ' . $games . '
                         </tbody>
                         </table>
                     </div>
@@ -170,17 +170,17 @@
         }
 
         if (isset($_GET["logout"])) { // Logout
-            unset($_COOKIE['sysUsername']); 
-            unset($_COOKIE['sysPassword']); 
-            setcookie('sysPassword', '', -1, '/');  
-            setcookie('sysUsername', '', -1, '/');  
+            unset($_COOKIE['sysUsername']);
+            unset($_COOKIE['sysPassword']);
+            setcookie('sysPassword', '', -1, '/');
+            setcookie('sysUsername', '', -1, '/');
             Header("Location: /sys");
         } else if ($config["sys.enabled"] != true) {  // Check if sys is enabled.
             echo "Sys Disabled";
         } else if (isset($_POST["sysUsername"]) && isset($_POST["sysPassword"])) { // If form has been submitted.
             if ($_POST["sysUsername"] == $config["sys.username"] && $_POST["sysPassword"] == $config["sys.password"]) {
-                setcookie("sysUsername",$_POST["sysUsername"],time() + (86400 * 30),"/");
-                setcookie("sysPassword",$_POST["sysPassword"],time() + (86400 * 30),"/");
+                setcookie("sysUsername", $_POST["sysUsername"], time() + (86400 * 30), "/");
+                setcookie("sysPassword", $_POST["sysPassword"], time() + (86400 * 30), "/");
                 showAdmin();
             } else {
                 showLogin("incorrectpswd");
@@ -189,7 +189,7 @@
             showLogin("");
         }
 
-    ?>
+        ?>
 
     </main>
     <div id="footer"></div>
@@ -197,17 +197,19 @@
 
     <!-- Bootstrap and Themes -->
     <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/chipledger/util/js/themeswitcher.js"></script>
+    <script src="/lib/chipledger/app/js/themeswitcher.js"></script>
 
     <!-- Site version -->
     <?php
-        echo "<script>const version = '{$config["site.version"]}';</script>";
+    echo "<script>const version = '{$config["site.version"]}';</script>";
     ?>
 
 
     <!-- Footer -->
-    <script src="/lib/chipledger/util/js/footer.js"></script>
-    <script>refreshColorScheme();</script>
+    <script src="/lib/chipledger/app/js/footer.js"></script>
+    <script>
+        refreshColorScheme();
+    </script>
 
 </body>
 

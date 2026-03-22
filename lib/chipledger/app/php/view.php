@@ -52,11 +52,11 @@
     <main id="main">
         <h2 class="mt-5 border-bottom border-1 pb-2">Please enable JavaScript to use Chipledger.</h2>
         <p>This app requires JavaScript to be used. If you believe you have JS enabled, you may have the following issues:
-            <ol>
-                <li>Your browser is outdated</li>
-                <li>Your adblocker is blocking this page from rendering successfully.</li>
-            </ol>
-            Sorry for the inconvenience.
+        <ol>
+            <li>Your browser is outdated</li>
+            <li>Your adblocker is blocking this page from rendering successfully.</li>
+        </ol>
+        Sorry for the inconvenience.
         </p>
     </main>
     <div id="footer"></div>
@@ -64,33 +64,33 @@
 
     <!-- Bootstrap and Themes -->
     <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/chipledger/util/js/themeswitcher.js"></script>
+    <script src="/lib/chipledger/app/js/themeswitcher.js"></script>
 
     <!-- Site Version included after auth -->
     <?php
-        echo "<script>const version = '{$config["site.version"]}'</script>";
+    echo "<script>const version = '{$config["site.version"]}'</script>";
     ?>
 
 
     <!-- App specific scripts -->
-    <?php 
-        if (isloggedin($config["database.location"])) {
-            $paths = [
-                "<script>const username = '{$username}';const siteName = '{$config["site.name"]}';const d = new Date();const dateString = d.getDay() + '-' + d.getMonth() + '-' + d.getFullYear();</script>",
-                "<script src='/lib/chipledger/app/js/view.js'></script>",
-                "<script src='/lib/chipledger/app/js/components.js'></script>",
-                "<script src='/lib/chipledger/app/js/pages.js'></script>"
-            ];
-            foreach ($paths as $path) {
-                echo $path . "\n    ";
-            }
-        } else {
-            echo "<script src='/lib/chipledger/app/js/splash.js'></script>\n";
+    <?php
+    if (isloggedin($config["database.location"])) {
+        $paths = [
+            "<script>const username = '{$username}';const siteName = '{$config["site.name"]}';const d = new Date();const dateString = d.getDay() + '-' + d.getMonth() + '-' + d.getFullYear();</script>",
+            "<script src='/lib/chipledger/app/js/view.js'></script>",
+            "<script src='/lib/chipledger/app/js/components.js'></script>",
+            "<script src='/lib/chipledger/app/js/pages.js'></script>"
+        ];
+        foreach ($paths as $path) {
+            echo $path . "\n    ";
         }
+    } else {
+        echo "<script src='/lib/chipledger/app/js/splash.js'></script>\n";
+    }
     ?>
 
     <!-- Footer -->
-    <script src="/lib/chipledger/util/js/footer.js"></script>
+    <script src="/lib/chipledger/app/js/footer.js"></script>
 
 </body>
 
