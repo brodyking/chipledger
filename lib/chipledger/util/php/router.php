@@ -27,7 +27,7 @@ if (str_contains($request, "?")) {
 }
 
 // Loading configuration file
-$config = json_decode(file_get_contents($dir."/lib/chipledger/config.json"), true); // Configuration data
+$config = json_decode(file_get_contents($dir . "/lib/chipledger/config.json"), true); // Configuration data
 $config["database.location"] = $dir . "/database/database.db"; // Set the database location. Used in API.
 
 // Authentication
@@ -42,51 +42,52 @@ if ($isloggedin) {
 // Possible routes (Besides app routes that are dictated through JS, those are not listed here.)
 $routes = [
     // Routes for API calls
-        // Auth API calls
-            "/api/auth/register" => ["api", null],
-            "/api/auth/login" => ["api", null],
-            "/api/auth/logout" => ["api", null],
-        // Content API calls
-            "/api/data/releaseNotes" => ["api", null],
-            "/api/data/tutorial" => ["api", null],
-        // Game API calls
-            "/api/game/new" => ["api", null],
-            "/api/game/delete" => ["api", null],
-            "/api/game/list" => ["api", null],
-            "/api/game/rename" => ["api", null],
-            "/api/game/addPlayer" => ["api", null],
-            "/api/game/addBuyin" => ["api", null],
-            "/api/game/editBuyin" => ["api", null],
-            "/api/game/addCashout" => ["api", null],
-            "/api/game/editCashout" => ["api", null],
-            "/api/game/get" => ["api", null],
-        // User API calls
-            "/api/user/get" => ["api", null],
-            "/api/user/changePassword" => ["api", null],
-            "/api/user/changeEmail" => ["api", null],
-            "/api/user/delete" => ["api", null],
+    // Auth API calls
+    "/api/auth/register" => ["api", null],
+    "/api/auth/login" => ["api", null],
+    "/api/auth/logout" => ["api", null],
+    // Content API calls
+    "/api/data/releaseNotes" => ["api", null],
+    "/api/data/tutorial" => ["api", null],
+    // Game API calls
+    "/api/game/new" => ["api", null],
+    "/api/game/delete" => ["api", null],
+    "/api/game/list" => ["api", null],
+    "/api/game/rename" => ["api", null],
+    "/api/game/addPlayer" => ["api", null],
+    "/api/game/addBuyin" => ["api", null],
+    "/api/game/editBuyin" => ["api", null],
+    "/api/game/addCashout" => ["api", null],
+    "/api/game/editCashout" => ["api", null],
+    "/api/game/get" => ["api", null],
+    // User API calls
+    "/api/user/get" => ["api", null],
+    "/api/user/changePassword" => ["api", null],
+    "/api/user/changeEmail" => ["api", null],
+    "/api/user/delete" => ["api", null],
     // Routes for Sys
-        "/sys" => ["sys", null],
+    "/sys" => ["sys", null],
     // Routes for Docs 
-        "/docs" => ["docs", "index"],
-        // Articles
-            "/docs/about-this-project" => ["docs", "html"],
-            "/docs/api" => ["docs", "html"],
-            "/docs/javascript-and-rendering" => ["docs", "html"],
-            "/docs/database" => ["docs", "html"],
-            "/docs/file-structure" => ["docs", "html"],
+    "/docs" => ["docs", "index"],
+    // Articles
+    "/docs/about-this-project" => ["docs", "html"],
+    "/docs/api" => ["docs", "html"],
+    "/docs/javascript-and-rendering" => ["docs", "html"],
+    "/docs/database" => ["docs", "html"],
+    "/docs/file-structure" => ["docs", "html"],
     // Routes for Blog
-        "/blog" => ["blog", "index"],
-        // Posts
-            "/blog/2025/07/02/v1.1-patches-and-more" => ["blog", "html"],
-            "/blog/2025/07/14/v1.2-feature-update" => ["blog", "html"],
+    "/blog" => ["blog", "index"],
+    // Posts
+    "/blog/2025/07/02/v1.1-patches-and-more" => ["blog", "html"],
+    "/blog/2025/07/14/v1.2-feature-update" => ["blog", "html"],
+    "/blog/2026/03/22/v1.3-security-update" => ["blog", "html"],
     // Routes for Donate
-        "/donate" => ["donate", "index"],
+    "/donate" => ["donate", "index"],
     // Routes for Policy 
-        "/policy" => ["policy", "index"],
-        // Articles
-            "/policy/tos" => ["policy", "html"],
-            "/policy/cookies" => ["policy", "html"]
+    "/policy" => ["policy", "index"],
+    // Articles
+    "/policy/tos" => ["policy", "html"],
+    "/policy/cookies" => ["policy", "html"]
 
 ];
 
