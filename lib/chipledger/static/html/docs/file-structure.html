@@ -9,7 +9,7 @@
     <h4 id="table-of-contents">
         Table of Contents
     </h4>
-    <p>
+    <p> 
     <ol>
         <li>
             <a href="#overview">Overview</a>
@@ -21,7 +21,7 @@
             <a href="#lib-dir">Lib Directory</a>
             <ol>
                 <li><a href="#api">API</a></li>
-                <li><a href="#js">JS</a></li>
+                <li><a href="#app">App</a></li>
                 <li><a href="#static">Static</a></li>
             </ol>
         </li>
@@ -68,28 +68,20 @@
                     <td>Chipledger's API source code.</td>
                 </tr>
                 <tr>
-                    <td>/lib/chipledger/css/</td>
-                    <td>Chipledgers custom CSS. Only Minor tweaks in here.</td>
-                </tr>
-                <tr>
-                    <td>/lib/chipledger/fonts/</td>
-                    <td>Fonts used by Bootswatch. I dont like using google fonts so they are here locally.</td>
-                </tr>
-                <tr>
-                    <td>/lib/chipledger/img/</td>
-                    <td>Images and Logos used in Chipledger</td>
-                </tr>
-                <tr>
-                    <td>/lib/chipledger/js/</td>
-                    <td>Where all of the JS is stored.</td>
-                </tr>
-                <tr>
-                    <td>/lib/chipledger/php/</td>
-                    <td>Occasional PHP scripts that are needed. (NOT THE API)</td>
+                    <td>/lib/chipledger/app/</td>
+                    <td>Chipledger's frontend javascript php</td>
                 </tr>
                 <tr>
                     <td>/lib/chipledger/static/</td>
-                    <td>Where all static content is stored.</td>
+                    <td>Chipledger's static content/other pages</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/sys/</td>
+                    <td>Chipledger's admin panel.</td>
+                </tr>
+                <tr>
+                    <td>/lib/chipledger/util/</td>
+                    <td>Chipledger's misc code/resources.</td>
                 </tr>
             </tbody>
         </table>
@@ -108,12 +100,7 @@
         <code>.htaccess</code> handles the stage #1 routing. Sends all traffic to <code>index.php</code>
     </p>
     <p>
-        <code>index.php</code> decides if it is for static content or the actual app.
-        If it is the app, it then again routes all traffic to <code>app.php</code>.
-    </p>
-    <p>
-        <code>app.php</code> has an application skeleton, and chooses + includes the javascript for the user.
-        It is determined by if the user is logged in.
+        <code>index.php</code> simply includes the router file (<code>/lib/chipledger/util/php/router.php</code>).
     </p>
     <h4 id="lib-dir">
         Lib Directory
@@ -124,34 +111,33 @@
     </p>
     <h5 id="api">API</h5>
     <p>
-        The API folder contains all endpoints.
-        These are routed to from the <code>/index.php</code> file.
+        The API directory (<code>/lib/chipledger/api/</code>) contains all endpoints.
+        These can be accessed by the url's defined in the router file.
     </p>
     <p>
         Feel free to read more about the <a href="/docs/api">API Documentation</a>.
     </p>
-    <h5 id="js">JS</h5>
+    <h5 id="app">App</h5>
     <p>
-        This folder contains all the frontend JS used by Chipledger.
+        The App directory  (<code>/lib/chipledger/app/</code>) contains all the frontend JS and main php file used by Chipledger.
     </p>
     <p>
         Feel free to read more about the <a href="/docs/javascript-and-rendering">Javascript and Rendering</a>.
     </p>
     <h5 id="static">Static</h5>
     <p>
-        The static directory has all the content not on the main site.
+        The static directory (<code>/lib/chipledger/static/</code>) has all the content not on the main site.
         This includes the docs, blog, policy, and donate screen.
     </p>
     <p>
         These all function differently than the original site.
-        Each HTML file is just the main content, included between the <code>top.php</code> and <code>bottom.php</code> files.
+        Each HTML file is just the main content, included between the <code>top.html</code> and <code>bottom.php</code> files.
     </p>
     <p>
         They also all contain a <code>404.html</code>, which is displayed if a user navigates further into the url.
-        Say the user goes to <code>/donate/test</code>, it would then show the <code>404.html</code>.
     </p>
     <p>
-        All routing (and construction) to these pages is done within <code>/index.php</code>.
+        All routing (and construction) to these pages is done within the router.
     </p>
     <h4 id="database">Database</h4>
     <p>
