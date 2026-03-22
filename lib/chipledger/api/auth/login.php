@@ -6,15 +6,12 @@ if (isset($_GET["username"]) && isset($_GET["password"])) {
         $db = new PDO("sqlite:" . $config["database.location"]);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Good practice to set error mode
 
-        $sql = "SELECT * FROM users WHERE username=:usernameInput AND password=:passwordInput";
+        $sql = "SELECT * FROM users WHERE username=:usernameInput";
 
         $statement = $db->prepare($sql);
 
         $username = urldecode(filter_input(INPUT_GET, 'username'));
         $statement->bindValue(":usernameInput", $username, PDO::PARAM_STR);
-
-        $password = urldecode(filter_input(INPUT_GET, 'password'));
-        $statement->bindValue(":passwordInput", $password, PDO::PARAM_STR);
 
         $statement->execute(); // <--- YOU WERE MISSING THIS LINE!
 
@@ -25,8 +22,10 @@ if (isset($_GET["username"]) && isset($_GET["password"])) {
         if (!$r) {
             echo json_encode(array("error" => true, "errormessage" => "Incorrerct Login Details"));
             exit();
+        } else if (!password_verify($_GET["password"], $r["password"])) {
+            echo json_encode(array("error" => true, "errormessage" => "Incorrerct Login Details"));
+            exit();
         }
-
     } catch (PDOException $e) {
         echo json_encode(array("error" => true, "errormessage" => "Unknown Error"));
         //echo "Error: " . $e->getMessage(); // Display a more user-friendly error
@@ -58,13 +57,11 @@ if (isset($_GET["username"]) && isset($_GET["password"])) {
             die();
         }
         $db = null;
-
     } catch (PDOException $e) {
         //echo $e;
         echo json_encode(array("error" => true, "errormessage" => "Unknown Error"));
         die();
     }
-
 } else {
     echo json_encode(array("error" => true, "errormessage" => "Unknown Error"));
 }
